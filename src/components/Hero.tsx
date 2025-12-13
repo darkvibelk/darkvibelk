@@ -5,6 +5,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshTransmissionMaterial, Text3D, Center } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
+import Link from 'next/link';
 import * as THREE from 'three';
 
 function RotatingShape() {
@@ -74,14 +75,26 @@ export default function Hero() {
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="flex flex-col md:flex-row gap-4 justify-center items-center"
                 >
-                    <button className="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2 group">
-                        Explore Solutions
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="px-8 py-3 border border-gray-700 bg-black/50 backdrop-blur-md text-white font-semibold rounded-full hover:border-gray-500 transition-colors flex items-center gap-2">
-                        <Mail className="w-4 h-4" />
-                        Contact Team
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-6">
+                        <Link href="/services">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-gray-200 transition-colors"
+                            >
+                                Explore Solutions <ArrowRight className="w-4 h-4" />
+                            </motion.button>
+                        </Link>
+                        <Link href="/contact">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="px-8 py-4 border border-gray-700 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition-colors bg-black/50 backdrop-blur-sm"
+                            >
+                                <Mail className="w-4 h-4" /> Contact Team
+                            </motion.button>
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>

@@ -5,12 +5,14 @@ export default function Footer() {
                 <div className="flex items-center gap-2">
                     {/* Placeholder for Logo if image fails, or text */}
                     <span className="font-heading font-bold text-xl tracking-widest text-[#fff]">DARK VIBE</span>
-                </div>
-
-                <div className="flex gap-8 text-sm text-gray-500 font-medium">
-                    <a href="#" className="hover:text-white transition-colors">LINKEDIN</a>
-                    <a href="#" className="hover:text-white transition-colors">FACEBOOK</a>
-                    <a href="#" className="hover:text-white transition-colors">INSTAGRAM</a>
+                    {/* Socials */}
+                    <div className="flex gap-6">
+                        <a href="https://www.facebook.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
+                        <a href="https://www.instagram.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+                        <a href="https://www.x.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
+                        {/* WhatsApp Placeholder - User to provide number */}
+                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors"><Phone className="w-5 h-5" /></a>
+                    </div>
                 </div>
 
                 <div className="text-xs text-gray-600">

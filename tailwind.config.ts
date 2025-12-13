@@ -22,7 +22,7 @@ const config: Config = {
                 "chrome-gradient": "linear-gradient(135deg, #E0E0E0 0%, #757575 100%)",
             },
             fontFamily: {
-                heading: ['var(--font-clash)', 'sans-serif'],
+                heading: ['var(--font-outfit)', 'sans-serif'],
                 body: ['var(--font-inter)', 'sans-serif'],
             },
             animation: {
