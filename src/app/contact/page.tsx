@@ -28,8 +28,12 @@ export default function ContactPage() {
                     Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: "YOUR_ACCESS_KEY_HERE", // ⚠️ REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY
-                    ...formData,
+                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                    subject: `New Dark Vibe Inquiry: ${formData.service}`,
+                    name: formData.name,
+                    email: formData.email,
+                    service: formData.service,
+                    message: formData.message,
                 }),
             });
 
@@ -40,9 +44,11 @@ export default function ContactPage() {
                 setFormData({ name: '', email: '', service: '', message: '' });
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
+                console.error('Web3Forms error:', result);
                 setStatus('error');
             }
         } catch (error) {
+            console.error('Submission error:', error);
             setStatus('error');
         }
     };
