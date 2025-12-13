@@ -1,4 +1,3 @@
-```
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
@@ -6,15 +5,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 // Professional Sans-Serif for Body
-const inter = Inter({ 
-  subsets: ["latin"], 
+const inter = Inter({
+  subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap',
 });
 
-// Modern, Professional Heading Font (Replacing custom CDN font for better stability)
-const outfit = Outfit({ 
-  subsets: ["latin"], 
+// Modern, Professional Heading Font
+const outfit = Outfit({
+  subsets: ["latin"],
   variable: '--font-outfit',
   display: 'swap',
 });
@@ -31,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${ inter.variable } ${ outfit.variable } font - body bg - background text - white antialiased selection: bg - white / 20 selection: text - black`}>
+      <body className={`${inter.variable} ${outfit.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
         <Navbar />
         {children}
         <Footer />
@@ -39,4 +38,3 @@ export default function RootLayout({
     </html>
   );
 }
-```
