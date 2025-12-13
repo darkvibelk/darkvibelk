@@ -78,8 +78,8 @@ export default function ServicesPage() {
                             </p>
                             <ul className="space-y-2">
                                 {service.details.map((detail, i) => (
-                                    <li key={i} className="flex items-center text-xs text-gray-500 font-mono">
-                                        <span className="w-1.5 h-1.5 bg-gray-700 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+                                    <li key={i} className="flex items-center text-sm text-gray-300 font-mono">
+                                        <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
                                         {detail}
                                     </li>
                                 ))}

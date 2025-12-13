@@ -1,31 +1,79 @@
 "use client";
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
     {
-        title: "Project Alpha",
-        category: "Web Application",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        year: "2024"
-    },
-    {
-        title: "Cyber Nexus",
-        category: "Network Infrastructure",
+        title: "IT Service Desk Portal",
+        category: "Maytech Technologies",
         image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
-        year: "2024"
+        year: "2024",
+        url: "https://maytech-servicedesk.vercel.app/login"
     },
     {
-        title: "Obsidian Brand",
-        category: "Visual Identity",
-        image: "https://images.unsplash.com/photo-1626785774573-4b799314346d?q=80&w=2670&auto=format&fit=crop",
-        year: "2023"
+        title: "Dark Vibe (Concept)",
+        category: "Boutique Startup Idea",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
+        year: "2025",
+        url: "https://darkvibelk.vercel.app/"
     },
     {
-        title: "Quantum Dashboard",
-        category: "SaaS Platform",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-        year: "2023"
+        title: "Rose Printers",
+        category: "Family Business",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop",
+        year: "2024",
+        url: "#"
+    },
+    {
+        title: "Professional Portfolio V2",
+        category: "Personal Project",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        year: "2024",
+        url: "https://armohamedzuhail.com"
+    },
+    {
+        title: "Dual ISP Failover with HSRP",
+        category: "University of Greenwich",
+        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
+        year: "2023",
+        url: "#"
+    },
+    {
+        title: "Personal Website (Legacy)",
+        category: "Personal Project",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2672&auto=format&fit=crop",
+        year: "2023",
+        url: "https://armohamedzuhail.netlify.app"
+    },
+    {
+        title: "LAN, WAN, BGP & ISP Topologies",
+        category: "ATN Campus",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
+        year: "2023",
+        url: "#"
+    },
+    {
+        title: "Campus Area Network Design",
+        category: "Network Architecture",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
+        year: "2022",
+        url: "#"
+    },
+    {
+        title: "Secure Remote Access Setup",
+        category: "Security & VPN",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+        year: "2022",
+        url: "#"
+    },
+    {
+        title: "Microsoft 365 Migration",
+        category: "Cloud Administration",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
+        year: "2023",
+        url: "#"
     }
 ];
 
@@ -61,21 +109,31 @@ export default function ProjectsPage() {
                             transition={{ delay: idx * 0.2 }}
                             className="group cursor-pointer"
                         >
-                            <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="object-cover w-full h-full grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700"
-                                />
-                            </div>
-                            <div className="flex justify-between items-end border-b border-gray-800 pb-4 group-hover:border-white transition-colors">
-                                <div>
-                                    <h3 className="font-heading text-2xl font-bold">{project.title}</h3>
-                                    <p className="text-gray-500 text-sm">{project.category}</p>
+                            <Link href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} className="block">
+                                <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+
+                                    {/* Link Icon Overlay */}
+                                    <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform">
+                                            <ArrowUpRight className="w-6 h-6" />
+                                        </div>
+                                    </div>
+
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="object-cover w-full h-full grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700"
+                                    />
                                 </div>
-                                <span className="font-mono text-xs text-gray-600 group-hover:text-white">{project.year}</span>
-                            </div>
+                                <div className="flex justify-between items-end border-b border-gray-800 pb-4 group-hover:border-white transition-colors">
+                                    <div>
+                                        <h3 className="font-heading text-2xl font-bold">{project.title}</h3>
+                                        <p className="text-gray-500 text-sm">{project.category}</p>
+                                    </div>
+                                    <span className="font-mono text-xs text-gray-600 group-hover:text-white">{project.year}</span>
+                                </div>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
