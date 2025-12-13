@@ -32,7 +32,7 @@ export default function Navbar() {
                         />
                     </div>
                     <span className="font-heading font-bold text-xl tracking-widest hidden md:block group-hover:text-gray-300 transition-colors">
-                        DARK VIBE
+                        DARK VIBE <span className="text-xs text-chrome ml-2 px-2 py-1 bg-white/10 rounded">V2.0</span>
                     </span>
                 </Link>
 
