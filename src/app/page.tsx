@@ -28,11 +28,11 @@ export default function Home() {
                 <div className="pointer-events-auto flex items-center gap-4">
                     {/* Logo Image */}
                     <div className="relative group cursor-pointer">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         <img
                             src="/logo.jpg"
                             alt="Dark Vibe Logo"
-                            className="relative h-14 w-14 object-cover rounded-full border-2 border-gray-800 shadow-2xl hover:scale-105 transition-transform duration-300"
+                            className="relative h-14 w-14 object-cover rounded-2xl border-2 border-gray-800 shadow-2xl hover:scale-105 transition-transform duration-300"
                         />
                     </div>
                 </div>
