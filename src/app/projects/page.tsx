@@ -46,7 +46,7 @@ const projects = [
         title: "Professional Portfolio V2",
         category: "Personal Project",
         type: "web",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        image: "/project_portfolio.png",
         year: "2024",
         url: "https://armohamedzuhail.com",
         status: "DEPLOYED"
@@ -56,7 +56,7 @@ const projects = [
         title: "Dual ISP Failover with HSRP",
         category: "Network Engineering",
         type: "network",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1551808525-51a943714888?q=80&w=2544&auto=format&fit=crop",
         year: "2023",
         url: "#",
         status: "ARCHIVED"
@@ -65,7 +65,7 @@ const projects = [
         title: "LAN, WAN, BGP & ISP Topologies",
         category: "Network Architecture",
         type: "network",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
         year: "2023",
         url: "#",
         status: "ARCHIVED"
@@ -132,25 +132,28 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex flex-wrap gap-4 mb-16 border-b border-gray-800 pb-8">
-                    {tabs.map((tab) => {
-                        const Icon = tab.icon;
-                        return (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 font-mono text-sm
-                                    ${activeTab === tab.id
-                                        ? 'bg-white text-black border-white'
-                                        : 'bg-transparent text-gray-500 border-gray-800 hover:border-gray-600 hover:text-white'
-                                    }
-                                `}
-                            >
-                                <Icon className="w-4 h-4" />
-                                {tab.label}
-                            </button>
-                        );
-                    })}
+                {/* Mobile scrollable tabs */}
+                <div className="overflow-x-auto pb-4 mb-12 md:mb-16 md:pb-0 scrollbar-hide">
+                    <div className="flex gap-4 min-w-max border-b border-gray-800 pb-4 md:pb-8">
+                        {tabs.map((tab) => {
+                            const Icon = tab.icon;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 font-mono text-sm whitespace-nowrap
+                                        ${activeTab === tab.id
+                                            ? 'bg-white text-black border-white'
+                                            : 'bg-transparent text-gray-500 border-gray-800 hover:border-gray-600 hover:text-white'
+                                        }
+                                    `}
+                                >
+                                    <Icon className="w-4 h-4" />
+                                    {tab.label}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -165,7 +168,7 @@ export default function ProjectsPage() {
                                 transition={{ duration: 0.3 }}
                                 className="group"
                             >
-                                <Link href={project.url} target={project.url !== '#' ? "_blank" : undefined} className="block relative cursor-pointer">
+                                <Link href={project.url} target={project.url !== '#' ? "_blank" : undefined} className={`block relative ${project.url === '#' ? 'cursor-default pointer-events-none' : 'cursor-pointer'}`}>
                                     <div className="relative overflow-hidden rounded-lg aspect-video mb-4 border border-gray-800 group-hover:border-white/50 transition-colors">
 
                                         {/* Status Badge */}
@@ -177,11 +180,13 @@ export default function ProjectsPage() {
                                         </div>
 
                                         {/* Link Icon Overlay */}
-                                        <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <div className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform">
-                                                <ArrowUpRight className="w-6 h-6" />
+                                        {project.url !== '#' && (
+                                            <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <div className="bg-white text-black p-3 rounded-full hover:scale-110 transition-transform">
+                                                    <ArrowUpRight className="w-6 h-6" />
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
 
                                         <img
                                             src={project.image}
