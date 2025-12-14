@@ -21,6 +21,18 @@ export default function ContactPage() {
         e.preventDefault();
         setStatus('sending');
 
+        // Format the service name for the email (Make it look professional)
+        const serviceLabels: { [key: string]: string } = {
+            "networking": "Empire Networking",
+            "cyber-defense": "Cyber Defense & IT",
+            "web-architecture": "Web Architecture",
+            "brand-sovereignty": "Brand Sovereignty",
+            "cloud-command": "Cloud Command",
+            "data-vaults": "Data Vaults",
+            "other": "General Inquiry"
+        };
+        const formattedService = serviceLabels[formData.service] || formData.service;
+
         try {
             // 1. Send Notification to Admin (Web3Forms)
             const web3FormsResponse = await fetch("https://api.web3forms.com/submit", {
@@ -31,10 +43,10 @@ export default function ContactPage() {
                 },
                 body: JSON.stringify({
                     access_key: "5a2ae542-6fb9-4e35-8b49-cd4857cecc8c",
-                    subject: `New Dark Vibe Inquiry: ${formData.service}`,
+                    subject: `New Dark Vibe Inquiry: ${formattedService}`,
                     name: formData.name,
                     email: formData.email,
-                    service: formData.service,
+                    service: formattedService,
                     message: formData.message,
                 }),
             });
@@ -49,7 +61,7 @@ export default function ContactPage() {
                     {
                         to_name: formData.name,
                         to_email: formData.email,
-                        service_name: formData.service,
+                        service_name: formattedService, // Sending the clean name
                         message: formData.message
                     },
                     'gHLtmcC-PAgztaLd0'
