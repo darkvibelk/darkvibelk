@@ -37,7 +37,7 @@ const projects = [
         title: "Dark Vibe (Concept)",
         category: "Boutique Startup Idea",
         type: "web",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
+        image: "/project_darkvibe_concept.png",
         year: "2025",
         url: "https://darkvibelk.pages.dev/",
         status: "ONLINE"
@@ -56,7 +56,7 @@ const projects = [
         title: "Dual ISP Failover with HSRP",
         category: "Network Engineering",
         type: "network",
-        image: "https://images.unsplash.com/photo-1551808525-51a943714888?q=80&w=2544&auto=format&fit=crop",
+        image: "/project_network_isp.png",
         year: "2023",
         url: "#",
         status: "ARCHIVED"
@@ -65,7 +65,7 @@ const projects = [
         title: "LAN, WAN, BGP & ISP Topologies",
         category: "Network Architecture",
         type: "network",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
+        image: "/project_network_lan.png",
         year: "2023",
         url: "#",
         status: "ARCHIVED"
@@ -74,7 +74,7 @@ const projects = [
         title: "Campus Area Network Design",
         category: "Network Architecture",
         type: "network",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
+        image: "/project_network_campus.png",
         year: "2022",
         url: "#",
         status: "ARCHIVED"
@@ -83,7 +83,7 @@ const projects = [
         title: "Secure Remote Access Setup",
         category: "Security & VPN",
         type: "network",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+        image: "/project_security_vpn.png",
         year: "2022",
         url: "#",
         status: "ARCHIVED"
