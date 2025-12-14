@@ -6,11 +6,25 @@ import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
     {
+        title: "Zhatn - CyberNoir Chat",
+        category: "Mobile Application",
+        image: "/project_zhatn.png",
+        year: "2025",
+        url: "#"
+    },
+    {
         title: "IT Service Desk Portal",
         category: "Maytech Technologies",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
+        image: "/project_itsm.png",
         year: "2024",
         url: "https://maytech-servicedesk.vercel.app/login"
+    },
+    {
+        title: "Rose Printers",
+        category: "Family Business",
+        image: "/project_rose.png",
+        year: "2024",
+        url: "#"
     },
     {
         title: "Dark Vibe (Concept)",
@@ -18,13 +32,6 @@ const projects = [
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
         year: "2025",
         url: "https://darkvibelk.vercel.app/"
-    },
-    {
-        title: "Rose Printers",
-        category: "Family Business",
-        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop",
-        year: "2024",
-        url: "#"
     },
     {
         title: "Professional Portfolio V2",
