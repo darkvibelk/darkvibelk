@@ -19,7 +19,7 @@ const projects = [
         title: "IT Service Desk Portal",
         category: "Web Application",
         type: "web",
-        image: "/project_itsm.png",
+        image: "/project_zhatn.png",
         year: "2024",
         url: "https://maytech-sd.pages.dev/",
         status: "OPERATIONAL"
@@ -28,16 +28,16 @@ const projects = [
         title: "Rose Printers",
         category: "Branding & Design",
         type: "design",
-        image: "/project_rose.png",
+        image: "/project_zhatn.png",
         year: "2024",
-        url: "https://armohamedzuhail.github.io/RosePrinters/",
+        url: "https://roseprinters.pages.dev/",
         status: "PUBLISHED"
     },
     {
         title: "Dark Vibe (Concept)",
         category: "Boutique Startup Idea",
         type: "web",
-        image: "/project_darkvibe_concept.png",
+        image: "/project_zhatn.png",
         year: "2025",
         url: "https://darkvibelk.pages.dev/",
         status: "ONLINE"
