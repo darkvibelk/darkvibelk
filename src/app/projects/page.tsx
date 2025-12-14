@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Globe, Radio } from 'lucide-react';
 
 const projects = [
     {
@@ -10,77 +10,40 @@ const projects = [
         category: "Mobile Application",
         image: "/project_zhatn.png",
         year: "2025",
-        url: "#"
+        url: "https://zhatn.pages.dev/",
+        status: "LIVE SYSTEM"
     },
     {
         title: "IT Service Desk Portal",
         category: "Maytech Technologies",
         image: "/project_itsm.png",
         year: "2024",
-        url: "https://maytech-servicedesk.vercel.app/login"
+        url: "https://maytech-sd.pages.dev/",
+        status: "OPERATIONAL"
     },
     {
         title: "Rose Printers",
         category: "Family Business",
         image: "/project_rose.png",
         year: "2024",
-        url: "#"
+        url: "https://armohamedzuhail.github.io/RosePrinters/",
+        status: "PUBLISHED"
     },
     {
         title: "Dark Vibe (Concept)",
         category: "Boutique Startup Idea",
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
         year: "2025",
-        url: "https://darkvibelk.vercel.app/"
+        url: "https://darkvibelk.pages.dev/",
+        status: "ONLINE"
     },
     {
         title: "Professional Portfolio V2",
         category: "Personal Project",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
         year: "2024",
-        url: "https://armohamedzuhail.com"
-    },
-    {
-        title: "Dual ISP Failover with HSRP",
-        category: "University of Greenwich",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
-        year: "2023",
-        url: "#"
-    },
-    {
-        title: "Personal Website (Legacy)",
-        category: "Personal Project",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2672&auto=format&fit=crop",
-        year: "2023",
-        url: "https://armohamedzuhail.netlify.app"
-    },
-    {
-        title: "LAN, WAN, BGP & ISP Topologies",
-        category: "ATN Campus",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
-        year: "2023",
-        url: "#"
-    },
-    {
-        title: "Campus Area Network Design",
-        category: "Network Architecture",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop",
-        year: "2022",
-        url: "#"
-    },
-    {
-        title: "Secure Remote Access Setup",
-        category: "Security & VPN",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-        year: "2022",
-        url: "#"
-    },
-    {
-        title: "Microsoft 365 Migration",
-        category: "Cloud Administration",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
-        year: "2023",
-        url: "#"
+        url: "https://armohamedzuhail.com",
+        status: "DEPLOYED"
     }
 ];
 
@@ -96,14 +59,20 @@ export default function ProjectsPage() {
                     >
                         THE<br />ARCHIVE
                     </motion.h1>
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="text-right text-gray-500 font-mono mt-8 md:mt-0"
+                        className="text-right mt-8 md:mt-0"
                     >
-                        SELECTED WORKS <br /> 2023 — 2025
-                    </motion.p>
+                        <div className="flex items-center justify-end gap-2 text-green-500 font-mono text-sm mb-2">
+                            <Radio className="w-4 h-4 animate-pulse" />
+                            <span>SYSTEMS ONLINE</span>
+                        </div>
+                        <p className="text-gray-500 font-mono">
+                            SELECTED WORKS <br /> 2023 — 2025
+                        </p>
+                    </motion.div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -114,11 +83,21 @@ export default function ProjectsPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.2 }}
-                            className="group cursor-pointer"
+                            className="group"
                         >
-                            <Link href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} className="block">
-                                <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+                            <Link href={project.url} target="_blank" className="block relative">
+                                <div className="relative overflow-hidden rounded-lg aspect-video mb-4 border border-gray-800 group-hover:border-white/50 transition-colors">
+
+                                    {/* Simulating "Live Video" feel with a scanline overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-20 animate-scan pointer-events-none z-20" />
+
+                                    {/* Status Badge */}
+                                    <div className="absolute top-4 left-4 z-20">
+                                        <div className="bg-black/80 backdrop-blur border border-green-900/50 text-green-500 text-xs font-mono px-3 py-1 rounded flex items-center gap-2">
+                                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                                            {project.status}
+                                        </div>
+                                    </div>
 
                                     {/* Link Icon Overlay */}
                                     <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -130,15 +109,26 @@ export default function ProjectsPage() {
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="object-cover w-full h-full grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700"
+                                        className="object-cover w-full h-full grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700"
                                     />
+
+                                    {/* Dark overlay for text readability if needed, fading on hover */}
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
                                 </div>
+
                                 <div className="flex justify-between items-end border-b border-gray-800 pb-4 group-hover:border-white transition-colors">
                                     <div>
-                                        <h3 className="font-heading text-2xl font-bold">{project.title}</h3>
-                                        <p className="text-gray-500 text-sm">{project.category}</p>
+                                        <h3 className="font-heading text-2xl font-bold flex items-center gap-3">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-gray-500 text-sm mt-1">{project.category}</p>
                                     </div>
-                                    <span className="font-mono text-xs text-gray-600 group-hover:text-white">{project.year}</span>
+                                    <div className="flex flex-col items-end gap-1">
+                                        <span className="font-mono text-xs text-gray-600 group-hover:text-white flex items-center gap-1">
+                                            <Globe className="w-3 h-3" /> VISIT SITE
+                                        </span>
+                                        <span className="font-mono text-xs text-gray-600">{project.year}</span>
+                                    </div>
                                 </div>
                             </Link>
                         </motion.div>
