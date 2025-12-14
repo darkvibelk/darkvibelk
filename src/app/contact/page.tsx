@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -21,14 +22,15 @@ export default function ContactPage() {
         setStatus('sending');
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
+            // 1. Send Notification to Admin (Web3Forms)
+            const web3FormsResponse = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                    access_key: "5a2ae542-6fb9-4e35-8b49-cd4857cecc8c",
                     subject: `New Dark Vibe Inquiry: ${formData.service}`,
                     name: formData.name,
                     email: formData.email,
@@ -37,14 +39,34 @@ export default function ContactPage() {
                 }),
             });
 
-            const result = await response.json();
+            const web3Result = await web3FormsResponse.json();
 
-            if (result.success) {
+            if (web3Result.success) {
+                // 2. Send Auto-Reply to User (EmailJS) - Non-blocking
+                emailjs.send(
+                    'service_2wrhkym',
+                    'template_rpx136v',
+                    {
+                        to_name: formData.name,
+                        to_email: formData.email,
+                        service_name: formData.service,
+                        message: formData.message
+                    },
+                    'gHLtmcC-PAgztaLd0'
+                ).then(
+                    (result) => {
+                        console.log('Auto-reply sent:', result.text);
+                    },
+                    (error) => {
+                        console.error('Auto-reply failed:', error.text);
+                    }
+                );
+
                 setStatus('success');
                 setFormData({ name: '', email: '', service: '', message: '' });
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
-                console.error('Web3Forms error:', result);
+                console.error('Web3Forms error:', web3Result);
                 setStatus('error');
             }
         } catch (error) {
