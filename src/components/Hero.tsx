@@ -101,7 +101,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h1 className="font-heading text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-chrome">
-                        DARK VIBE
+                        DARK VIBE <span className="text-3xl text-green-500 animate-pulse block md:inline mt-4 md:mt-0">[SYSTEM ONLINE]</span>
                     </h1>
                     <p className="font-heading text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto tracking-wide">
                         NEXT-GENERATION SOLUTIONS FOR DIGITAL AND TECHNICAL INFRASTRUCTURE.
