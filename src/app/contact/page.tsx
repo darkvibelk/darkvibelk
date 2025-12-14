@@ -29,6 +29,7 @@ export default function ContactPage() {
             "brand-sovereignty": "Brand Sovereignty",
             "cloud-command": "Cloud Command",
             "data-vaults": "Data Vaults",
+            "zhatn": "Zhatn App Suggestion",
             "other": "General Inquiry"
         };
         const formattedService = serviceLabels[formData.service] || formData.service;
@@ -163,6 +164,7 @@ export default function ContactPage() {
                                 <option value="brand-sovereignty" className="bg-black">Brand Sovereignty (Design)</option>
                                 <option value="cloud-command" className="bg-black">Cloud Command</option>
                                 <option value="data-vaults" className="bg-black">Data Vaults</option>
+                                <option value="zhatn" className="bg-black">Zhatn App Suggestion</option>
                                 <option value="other" className="bg-black">Other Inquiry</option>
                             </select>
                         </div>
