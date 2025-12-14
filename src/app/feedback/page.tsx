@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function FeedbackPage() {
     const [formData, setFormData] = useState({
@@ -100,9 +101,22 @@ export default function FeedbackPage() {
                     </p>
 
                     <div className="space-y-6 text-sm font-mono text-gray-300">
-                        <div className="p-4 border border-gray-800 rounded-lg bg-white/5">
-                            <label className="block text-xs text-gray-600 mb-1">TARGET SYSTEM</label>
-                            Zhatn & Dark Vibe Ecosystem
+                        {/* Replaced Target System with Direct Contact Links */}
+                        <div className="grid grid-cols-1 gap-4">
+                            <a href="mailto:darkvibelk@gmail.com" className="block p-4 border border-gray-800 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+                                <label className="block text-xs text-gray-600 mb-1 group-hover:text-white transition-colors">DIRECT UPLINK</label>
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold">EMAIL COMMS</span>
+                                    <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100" />
+                                </div>
+                            </a>
+                            <a href="https://wa.me/94775756000" target="_blank" className="block p-4 border border-gray-800 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+                                <label className="block text-xs text-gray-600 mb-1 group-hover:text-white transition-colors">INSTANT RELAY</label>
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold">WHATSAPP</span>
+                                    <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100" />
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </motion.div>
