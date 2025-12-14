@@ -8,7 +8,7 @@ const projects = [
     {
         title: "Zhatn - CyberNoir Chat",
         category: "Mobile Application",
-        image: "/project_zhatn.png",
+        image: "/preview_zhatn.webp",
         year: "2025",
         url: "https://zhatn.pages.dev/",
         status: "LIVE SYSTEM"
@@ -16,7 +16,7 @@ const projects = [
     {
         title: "IT Service Desk Portal",
         category: "Maytech Technologies",
-        image: "/project_itsm.png",
+        image: "/preview_maytech.webp",
         year: "2024",
         url: "https://maytech-sd.pages.dev/",
         status: "OPERATIONAL"
@@ -24,7 +24,7 @@ const projects = [
     {
         title: "Rose Printers",
         category: "Family Business",
-        image: "/project_rose.png",
+        image: "/preview_rose.webp",
         year: "2024",
         url: "https://armohamedzuhail.github.io/RosePrinters/",
         status: "PUBLISHED"
@@ -32,7 +32,7 @@ const projects = [
     {
         title: "Dark Vibe (Concept)",
         category: "Boutique Startup Idea",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
+        image: "/preview_darkvibe.webp",
         year: "2025",
         url: "https://darkvibelk.pages.dev/",
         status: "ONLINE"
