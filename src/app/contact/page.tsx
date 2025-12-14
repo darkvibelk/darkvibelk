@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useSearchParams } from 'next/navigation';
 
-export default function ContactPage() {
+function ContactForm() {
+    const searchParams = useSearchParams();
+    const defaultService = searchParams.get('service') || '';
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        service: '',
+        service: defaultService,
         message: ''
     });
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -207,5 +211,13 @@ export default function ContactPage() {
                 </motion.div>
             </div>
         </main>
+    );
+}
+
+export default function ContactPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ContactForm />
+        </Suspense>
     );
 }
