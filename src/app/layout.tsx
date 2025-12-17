@@ -21,7 +21,31 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Dark Vibe | All-In-One Platform",
   description: "Next-generation digital and technical infrastructure solutions.",
+  openGraph: {
+    title: "Dark Vibe | All-In-One Platform",
+    description: "Next-generation digital and technical infrastructure solutions.",
+    url: "https://darkvibe.lk",
+    siteName: "Dark Vibe Empire",
+    images: [
+      {
+        url: "/icon.jpg",
+        width: 800,
+        height: 600,
+        alt: "Dark Vibe Empire Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dark Vibe | All-In-One Platform",
+    description: "Next-generation digital and technical infrastructure solutions.",
+    images: ["/icon.jpg"],
+  },
 };
+
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 export default function RootLayout({
   children,
@@ -31,9 +55,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${outfit.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <SmoothScrolling>
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );

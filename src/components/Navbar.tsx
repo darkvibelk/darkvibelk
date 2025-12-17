@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -22,14 +23,18 @@ export default function Navbar() {
     return (
         <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white">
             <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-4 group">
-                    <div className="relative">
+                    <div className="relative w-12 h-12">
                         <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                        <img
+                        <Image
                             src="/logo.jpg"
                             alt="Dark Vibe"
-                            className="relative h-12 w-12 object-cover rounded-2xl border border-gray-700 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                            width={48}
+                            height={48}
+                            className="relative object-cover rounded-2xl border border-gray-700 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                            priority
                         />
                     </div>
                     <span className="font-heading font-bold text-xl tracking-widest hidden md:block group-hover:text-gray-300 transition-colors">
