@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Twitter, Github, Globe, Mail, MessageCircle } from 'lucide-react';
+import { Linkedin, Twitter, Github, Globe, Mail, MessageCircle, Youtube } from 'lucide-react';
 
 const teamMembers = [
     {
@@ -16,64 +16,27 @@ const teamMembers = [
             linkedin: "https://www.linkedin.com/in/armohamedzuhail/",
             github: "https://github.com/armohamedzuhail",
             email: "mailto:armzuhail@outlook.com",
-            whatsapp: "https://wa.me/94775756000"
+            whatsapp: "https://wa.me/94775756000",
+            twitter: "https://twitter.com/armohamedzuhail",
+            youtube: "https://www.youtube.com/@armohamedzuhail"
         }
     },
-    // ... rest of team
-];
-
-// ... inside component ...
-
-{/* Social Icons */ }
-<div className="flex justify-center gap-4">
-    {member.socials?.globe && (
-        <a href={member.socials.globe} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-            <Globe className="w-5 h-5" />
-        </a>
-    )}
-    {member.socials?.linkedin && (
-        <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-            <Linkedin className="w-5 h-5" />
-        </a>
-    )}
-    {member.socials?.github && (
-        <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-            <Github className="w-5 h-5" />
-        </a>
-    )}
-    {/* Dynamic check for email/whatsapp if typescript complains about explicit props, we can map or extend type. For now, hardcoding checks since object is flexible in JS/loose TS or I will cast. */}
-    {(member.socials as any)?.email && (
-        <a href={(member.socials as any).email} className="text-gray-500 hover:text-white transition-colors">
-            <Mail className="w-5 h-5" />
-        </a>
-    )}
-    {(member.socials as any)?.whatsapp && (
-        <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-            <MessageCircle className="w-5 h-5" />
-        </a>
-    )}
-    {member.socials?.twitter && (
-        <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-            <Twitter className="w-5 h-5" />
-        </a>
-    )}
-</div>
-{
-    name: "Mohamed Akmal",
+    {
+        name: "Mohamed Akmal",
         role: "Team Member", // Position pending
-            image: "/team-ref-1.png", // Image pending
-                status: "Loading...",
-                    isCutout: true,
-                        socials: { }
-},
-{
-    name: "Shakee Affa",
+        image: "/team-ref-1.png", // Image pending
+        status: "Loading...",
+        isCutout: true,
+        socials: {}
+    },
+    {
+        name: "Shakee Affa",
         role: "Team Member", // Position pending
-            image: "/team-ref-1.png", // Image pending
-                status: "Loading...",
-                    isCutout: true,
-                        socials: { }
-}
+        image: "/team-ref-1.png", // Image pending
+        status: "Loading...",
+        isCutout: true,
+        socials: {}
+    }
 ];
 
 export default function TeamSection() {
@@ -96,7 +59,7 @@ export default function TeamSection() {
                     {teamMembers.map((member, index) => (
                         <div key={index} className="group relative flex flex-col items-center">
                             {/* Floating Name Tag & Socials (3D Effect) */}
-                            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-4 group-hover:translate-y-0 absolute -top-24 z-20 w-56 pointer-events-none group-hover:pointer-events-auto">
+                            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-4 group-hover:translate-y-0 absolute -top-28 z-20 w-64 pointer-events-none group-hover:pointer-events-auto">
                                 <div className="bg-[#0a0a0a]/90 backdrop-blur-xl border border-gray-800 p-4 rounded-2xl text-center shadow-2xl ring-1 ring-white/10">
                                     <div className="text-white font-bold text-lg leading-tight mb-1">{member.name}</div>
                                     <div className="text-sm text-gray-400 mb-3 font-medium">{member.role}</div>
@@ -105,25 +68,40 @@ export default function TeamSection() {
                                     <div className="w-full h-px bg-gray-800 mb-3"></div>
 
                                     {/* Social Icons */}
-                                    <div className="flex justify-center gap-4">
-                                        {member.socials?.linkedin && (
-                                            <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Linkedin className="w-5 h-5" />
+                                    <div className="flex flex-wrap justify-center gap-3">
+                                        {member.socials?.globe && (
+                                            <a href={member.socials.globe} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                                                <Globe className="w-4 h-4" />
                                             </a>
                                         )}
-                                        {member.socials?.twitter && (
-                                            <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Twitter className="w-5 h-5" />
+                                        {member.socials?.linkedin && (
+                                            <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                                                <Linkedin className="w-4 h-4" />
                                             </a>
                                         )}
                                         {member.socials?.github && (
                                             <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Github className="w-5 h-5" />
+                                                <Github className="w-4 h-4" />
                                             </a>
                                         )}
-                                        {(member.socials as any)?.globe && (
-                                            <a href={(member.socials as any).globe} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Globe className="w-5 h-5" />
+                                        {(member.socials as any)?.email && (
+                                            <a href={(member.socials as any).email} className="text-gray-500 hover:text-white transition-colors">
+                                                <Mail className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.whatsapp && (
+                                            <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition-colors">
+                                                <MessageCircle className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.twitter && (
+                                            <a href={(member.socials as any).twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                                                <Twitter className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.youtube && (
+                                            <a href={(member.socials as any).youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-red-500 transition-colors">
+                                                <Youtube className="w-4 h-4" />
                                             </a>
                                         )}
                                     </div>
