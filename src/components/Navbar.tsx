@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useSeasonalLogo } from '@/hooks/useSeasonalLogo';
 
 const navLinks = [
     { name: 'The Empire', path: '/' },
@@ -19,6 +20,7 @@ const navLinks = [
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const logoSrc = useSeasonalLogo();
 
     return (
         <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white">
@@ -28,7 +30,7 @@ export default function Navbar() {
                     <div className="relative w-12 h-12">
                         <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         <Image
-                            src="/logo.png"
+                            src={logoSrc}
                             alt="Dark Vibe"
                             width={48}
                             height={48}
