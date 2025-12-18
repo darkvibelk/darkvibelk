@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Globe, Radio, Layers, Code, Wifi, Palette } from 'lucide-react';
@@ -188,9 +189,10 @@ export default function ProjectsPage() {
                                             </div>
                                         )}
 
-                                        <img
+                                        <Image
                                             src={project.image}
                                             alt={project.title}
+                                            fill
                                             className="object-cover w-full h-full grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-700"
                                         />
 

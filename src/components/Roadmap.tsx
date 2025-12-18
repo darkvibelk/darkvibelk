@@ -23,7 +23,7 @@ export default function Roadmap() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                     <div>
                         <h2 className="font-heading text-4xl font-bold mb-2 text-gray-500">Future Horizons</h2>
-                        <p className="text-gray-600">Expanding the platform's capabilities.</p>
+                        <p className="text-gray-600">Expanding the platform&apos;s capabilities.</p>
                     </div>
                 </div>
 
