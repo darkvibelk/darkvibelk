@@ -37,16 +37,16 @@ const teamMembers = [
     },
     {
         name: "Mohamed Akmal",
-        role: "Team Member", // Position pending
-        image: "/team-ref-1.png", // Image pending
+        role: "Team Member",
+        image: "/team-ref-1.png",
         status: "Loading...",
         isCutout: true,
         socials: {}
     },
     {
         name: "Shakee Affa",
-        role: "Team Member", // Position pending
-        image: "/team-ref-1.png", // Image pending
+        role: "Team Member",
+        image: "/team-ref-1.png",
         status: "Loading...",
         isCutout: true,
         socials: {}
@@ -181,6 +181,6 @@ export default function TeamSection() {
                     ))}
                 </div>
             </div>
-        </section >
+        </section>
     );
 }
