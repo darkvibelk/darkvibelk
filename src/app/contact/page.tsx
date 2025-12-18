@@ -113,7 +113,7 @@ export default function ContactPage() {
                                     <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100" />
                                 </div>
                             </a>
-                            <a href="https://wa.me/94775756000" target="_blank" className="block p-4 border border-gray-800 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+                            <a href="https://wa.me/94717221225" target="_blank" className="block p-4 border border-gray-800 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
                                 <label className="block text-xs text-gray-600 mb-1 group-hover:text-white transition-colors">INSTANT RELAY</label>
                                 <div className="flex items-center justify-between">
                                     <span className="font-bold">WHATSAPP</span>
