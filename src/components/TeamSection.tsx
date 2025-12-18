@@ -7,26 +7,30 @@ const teamMembers = [
     {
         name: "Mohamed Zuhail",
         role: "Founder & CEO",
-        image: "/team-ref-1.png", // Using the copied reference for now, assuming it's a cutout
-        status: "Visionary"
+        image: "/team-zuhail.jpg",
+        status: "Visionary",
+        isCutout: false // 1x1 Photo
     },
     {
         name: "Sarah Jenkins",
         role: "Head of Operations",
-        image: "/team-ref-1.png", // Placeholder
-        status: "Strategist"
+        image: "/team-ref-1.png",
+        status: "Strategist",
+        isCutout: true // Full body cutout
     },
     {
         name: "David Chen",
         role: "Tech Lead",
-        image: "/team-ref-1.png", // Placeholder
-        status: "Architect"
+        image: "/team-ref-1.png",
+        status: "Architect",
+        isCutout: true
     },
     {
         name: "Elena Rodriguez",
         role: "Creative Director",
-        image: "/team-ref-1.png", // Placeholder
-        status: "Artist"
+        image: "/team-ref-1.png",
+        status: "Artist",
+        isCutout: true
     }
 ];
 
@@ -57,16 +61,19 @@ export default function TeamSection() {
                                 </div>
                             </div>
 
-                            {/* The "Figurine" Image - Grayscale to Color on hover */}
-                            <div className="relative h-64 w-full flex justify-center items-end z-10 transition-transform duration-500 group-hover:-translate-y-2">
-                                <div className="relative w-48 h-64 grayscale group-hover:grayscale-0 transition-all duration-500 ease-out">
-                                    {/* Note: In a real scenario, these images need to be transparent cutouts (PNGs) for the effect to work perfectly. */}
+                            {/* Image Container: Conditional Logic for Cutouts vs 1x1 Photos */}
+                            <div className={`relative z-10 transition-transform duration-500 group-hover:-translate-y-2 ${member.isCutout ? 'h-64 w-full flex justify-center items-end' : 'h-48 w-48 mb-8 flex items-center justify-center'}`}>
+                                <div className={`relative w-full h-full transition-all duration-500 ease-out ${member.isCutout ? 'grayscale group-hover:grayscale-0' : 'rounded-full overflow-hidden border-4 border-gray-800 group-hover:border-chrome shadow-2xl scale-[0.85] group-hover:scale-100'}`}>
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className="object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                                        className={member.isCutout ? "object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" : "object-cover grayscale group-hover:grayscale-0"}
                                     />
+                                    {/* Additional Glow for non-cutouts */}
+                                    {!member.isCutout && (
+                                        <div className="absolute inset-0 rounded-full ring-1 ring-white/10 group-hover:ring-chrome/50 transition-all duration-500"></div>
+                                    )}
                                 </div>
                             </div>
 
