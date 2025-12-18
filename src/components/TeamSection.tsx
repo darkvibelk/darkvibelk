@@ -108,15 +108,20 @@ export default function TeamSection() {
                                                 <WhatsAppIcon className="w-4 h-4" />
                                             </a>
                                         )}
-                                        {(member.socials as any)?.facebookPage && (
-                                            <a href={(member.socials as any).facebookPage} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" title="Facebook Page">
+                                        {((member.socials as any)?.facebookPage || (member.socials as any)?.facebookProfile) && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    const page = (member.socials as any)?.facebookPage;
+                                                    const profile = (member.socials as any)?.facebookProfile;
+                                                    if (page) window.open(page, '_blank');
+                                                    if (profile) window.open(profile, '_blank');
+                                                }}
+                                                className="text-gray-500 hover:text-white transition-colors cursor-pointer"
+                                                title="Facebook"
+                                            >
                                                 <Facebook className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {(member.socials as any)?.facebookProfile && (
-                                            <a href={(member.socials as any).facebookProfile} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" title="Facebook Profile">
-                                                <User className="w-4 h-4" />
-                                            </a>
+                                            </button>
                                         )}
                                         {(member.socials as any)?.instagram && (
                                             <a href={(member.socials as any).instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
