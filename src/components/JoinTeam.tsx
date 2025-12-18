@@ -9,30 +9,21 @@ export default function JoinTeam() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
     const [fileName, setFileName] = useState<string>("");
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('sending');
 
-        // Note: Real file upload with EmailJS requires specific handling (often via a 3rd party storage link or base64 if small).
-        // For this MVP, we will simulate the file attached message or if 'emailjs' is configured for attachments (tier dependent).
-        // Here, we'll confirm the submission logic.
+        const formData = new FormData(e.currentTarget);
+        const name = formData.get('user_name') as string;
+        const email = formData.get('user_email') as string;
+        const role = formData.get('role') as string;
 
-        const form = e.currentTarget;
+        const subject = `Dark Vibe Legion Application: ${role} - ${name}`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ARole: ${role}%0D%0A%0D%0A[Please attach your CV/Resume to this email before sending.]%0D%0A%0D%0A---%0D%0AReady to build empires.`;
 
-        try {
-            // Replace with your actual Service ID, Template ID, and Public Key
-            // await emailjs.sendForm('service_id', 'template_id', form, 'public_key');
+        window.location.href = `mailto:armzuhail@outlook.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
-            // Simulating network delay for demo
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            setStatus('success');
-            form.reset();
-            setFileName("");
-        } catch (error) {
-            console.error(error);
-            setStatus('error');
-        }
+        setStatus('success');
+        setTimeout(() => setStatus('idle'), 3000);
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
