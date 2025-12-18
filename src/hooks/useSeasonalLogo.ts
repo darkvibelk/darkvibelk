@@ -12,7 +12,7 @@ export function useSeasonalLogo() {
         // IMPORTANT: You must ensure these files exist in /public, otherwise it will show broken image.
 
         if (month === 11) { // December
-            setLogoPath('/logo-xmas.png');
+            setLogoPath('/logo-xmas.jpg');
         } else if (month === 9) { // October
             setLogoPath('/logo-halloween.png');
         } else {
