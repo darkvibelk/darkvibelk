@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Twitter, Github, Globe } from 'lucide-react';
+import { Linkedin, Twitter, Github, Globe, Mail, MessageCircle } from 'lucide-react';
 
 const teamMembers = [
     {
@@ -12,27 +12,68 @@ const teamMembers = [
         status: "Visionary",
         isCutout: false,
         socials: {
-            linkedin: "https://linkedin.com/in/zuhail",
-            twitter: "https://x.com/zuhail",
-            github: "https://github.com/zuhail"
+            globe: "https://armohamedzuhail.com/",
+            linkedin: "https://www.linkedin.com/in/armohamedzuhail/",
+            github: "https://github.com/armohamedzuhail",
+            email: "mailto:armzuhail@outlook.com",
+            whatsapp: "https://wa.me/94775756000"
         }
     },
-    {
-        name: "Mohamed Akmal",
+    // ... rest of team
+];
+
+// ... inside component ...
+
+{/* Social Icons */ }
+<div className="flex justify-center gap-4">
+    {member.socials?.globe && (
+        <a href={member.socials.globe} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+            <Globe className="w-5 h-5" />
+        </a>
+    )}
+    {member.socials?.linkedin && (
+        <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+            <Linkedin className="w-5 h-5" />
+        </a>
+    )}
+    {member.socials?.github && (
+        <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+            <Github className="w-5 h-5" />
+        </a>
+    )}
+    {/* Dynamic check for email/whatsapp if typescript complains about explicit props, we can map or extend type. For now, hardcoding checks since object is flexible in JS/loose TS or I will cast. */}
+    {(member.socials as any)?.email && (
+        <a href={(member.socials as any).email} className="text-gray-500 hover:text-white transition-colors">
+            <Mail className="w-5 h-5" />
+        </a>
+    )}
+    {(member.socials as any)?.whatsapp && (
+        <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+            <MessageCircle className="w-5 h-5" />
+        </a>
+    )}
+    {member.socials?.twitter && (
+        <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+            <Twitter className="w-5 h-5" />
+        </a>
+    )}
+</div>
+{
+    name: "Mohamed Akmal",
         role: "Team Member", // Position pending
-        image: "/team-ref-1.png", // Image pending
-        status: "Loading...",
-        isCutout: true,
-        socials: {}
-    },
-    {
-        name: "Shakee Affa",
+            image: "/team-ref-1.png", // Image pending
+                status: "Loading...",
+                    isCutout: true,
+                        socials: { }
+},
+{
+    name: "Shakee Affa",
         role: "Team Member", // Position pending
-        image: "/team-ref-1.png", // Image pending
-        status: "Loading...",
-        isCutout: true,
-        socials: {}
-    }
+            image: "/team-ref-1.png", // Image pending
+                status: "Loading...",
+                    isCutout: true,
+                        socials: { }
+}
 ];
 
 export default function TeamSection() {
