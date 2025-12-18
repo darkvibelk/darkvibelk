@@ -109,7 +109,7 @@ export default function TeamSection() {
                             </div>
 
                             {/* Image Container: Conditional Logic for Cutouts vs 1x1 Photos */}
-                            <div className={`relative z-10 transition-transform duration-500 group-hover:-translate-y-2 ${member.isCutout ? 'h-64 w-full flex justify-center items-end' : 'h-48 w-48 mb-8 flex items-center justify-center'}`}>
+                            <div className={`relative z-10 transition-transform duration-500 group-hover:-translate-y-2 ${member.isCutout ? 'h-64 w-full flex justify-center items-end' : 'h-48 w-48 mb-2 flex items-center justify-center'}`}>
                                 <div className={`relative w-full h-full transition-all duration-500 ease-out ${member.isCutout ? 'grayscale group-hover:grayscale-0' : 'rounded-full overflow-hidden border-4 border-gray-800 group-hover:border-chrome shadow-2xl scale-[0.85] group-hover:scale-100 ring-4 ring-black/50'}`}>
                                     <Image
                                         src={member.image}
