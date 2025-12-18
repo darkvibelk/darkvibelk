@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Linkedin, Twitter, Github, Globe } from 'lucide-react';
 
 const teamMembers = [
     {
@@ -9,28 +10,44 @@ const teamMembers = [
         role: "Founder & CEO",
         image: "/team-zuhail.jpg",
         status: "Visionary",
-        isCutout: false // 1x1 Photo
+        isCutout: false,
+        socials: {
+            linkedin: "https://linkedin.com/in/zuhail",
+            twitter: "https://x.com/zuhail",
+            github: "https://github.com/zuhail"
+        }
     },
     {
         name: "Sarah Jenkins",
         role: "Head of Operations",
         image: "/team-ref-1.png",
         status: "Strategist",
-        isCutout: true // Full body cutout
+        isCutout: true,
+        socials: {
+            linkedin: "#"
+        }
     },
     {
         name: "David Chen",
         role: "Tech Lead",
         image: "/team-ref-1.png",
         status: "Architect",
-        isCutout: true
+        isCutout: true,
+        socials: {
+            github: "#",
+            twitter: "#"
+        }
     },
     {
         name: "Elena Rodriguez",
         role: "Creative Director",
         image: "/team-ref-1.png",
         status: "Artist",
-        isCutout: true
+        isCutout: true,
+        socials: {
+            linkedin: "#",
+            globe: "#"
+        }
     }
 ];
 
@@ -53,11 +70,35 @@ export default function TeamSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                     {teamMembers.map((member, index) => (
                         <div key={index} className="group relative flex flex-col items-center">
-                            {/* Floating Name Tag (3D Effect) */}
-                            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-4 group-hover:translate-y-0 absolute -top-12 z-20">
-                                <div className="bg-black/80 backdrop-blur-md border border-gray-700 px-4 py-2 rounded-lg text-center shadow-xl">
-                                    <div className="text-white font-bold text-sm">{member.name}</div>
-                                    <div className="text-xs text-chrome">{member.role}</div>
+                            {/* Floating Name Tag & Socials (3D Effect) */}
+                            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-4 group-hover:translate-y-0 absolute -top-20 z-20 w-48 pointer-events-none group-hover:pointer-events-auto">
+                                <div className="bg-black/80 backdrop-blur-md border border-gray-700 px-4 py-3 rounded-xl text-center shadow-xl">
+                                    <div className="text-white font-bold text-sm mb-0.5">{member.name}</div>
+                                    <div className="text-xs text-chrome mb-3">{member.role}</div>
+
+                                    {/* Social Icons */}
+                                    <div className="flex justify-center gap-3 border-t border-gray-700 pt-2">
+                                        {member.socials?.linkedin && (
+                                            <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                                                <Linkedin className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {member.socials?.twitter && (
+                                            <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                                                <Twitter className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {member.socials?.github && (
+                                            <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                                                <Github className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.globe && (
+                                            <a href={(member.socials as any).globe} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                                                <Globe className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 
