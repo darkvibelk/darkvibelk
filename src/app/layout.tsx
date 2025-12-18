@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Dark Vibe Empire",
     images: [
       {
-        url: "/icon.jpg",
+        url: "/logo.png",
         width: 800,
         height: 600,
         alt: "Dark Vibe Empire Logo",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dark Vibe | All-In-One Platform",
     description: "Next-generation digital and technical infrastructure solutions.",
-    images: ["/icon.jpg"],
+    images: ["/logo.png"],
   },
 };
 

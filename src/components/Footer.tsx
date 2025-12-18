@@ -11,11 +11,11 @@ export default function Footer() {
 
                 {/* Socials */}
                 <div className="flex gap-6">
-                    <a href="https://www.facebook.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-                    <a href="https://www.instagram.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-                    <a href="https://www.x.com/dakvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
+                    <a href="https://www.facebook.com/darkvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
+                    <a href="https://www.instagram.com/darkvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+                    <a href="https://www.x.com/darkvibelk/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
                     {/* Direct Call Link */}
-                    <a href="tel:+94775756000" className="hover:text-green-500 transition-colors"><Phone className="w-5 h-5" /></a>
+                    <a href="tel:+94717221225" className="hover:text-green-500 transition-colors"><Phone className="w-5 h-5" /></a>
                 </div>
 
                 <div className="text-xs text-gray-600">

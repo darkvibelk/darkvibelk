@@ -24,12 +24,11 @@ export default function Navbar() {
         <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white">
             <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
 
-                {/* Logo */}
                 <Link href="/" className="flex items-center gap-4 group">
                     <div className="relative w-12 h-12">
                         <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         <Image
-                            src="/logo.jpg"
+                            src="/logo.png"
                             alt="Dark Vibe"
                             width={48}
                             height={48}
