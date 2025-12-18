@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Twitter, Github, Globe, Mail, MessageCircle, Youtube } from 'lucide-react';
+import { Linkedin, Twitter, Github, Globe, Mail, MessageCircle, Youtube, Facebook, Instagram } from 'lucide-react';
 
 const teamMembers = [
     {
@@ -17,6 +17,8 @@ const teamMembers = [
             github: "https://github.com/armohamedzuhail",
             email: "mailto:armzuhail@outlook.com",
             whatsapp: "https://wa.me/94775756000",
+            facebook: "https://www.facebook.com/armohamedzuhailpage",
+            instagram: "https://www.instagram.com/armohamedzuhail/",
             twitter: "https://twitter.com/armohamedzuhail",
             youtube: "https://www.youtube.com/@armohamedzuhail"
         }
@@ -92,6 +94,16 @@ export default function TeamSection() {
                                         {(member.socials as any)?.whatsapp && (
                                             <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
                                                 <MessageCircle className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.facebook && (
+                                            <a href={(member.socials as any).facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                                                <Facebook className="w-4 h-4" />
+                                            </a>
+                                        )}
+                                        {(member.socials as any)?.instagram && (
+                                            <a href={(member.socials as any).instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                                                <Instagram className="w-4 h-4" />
                                             </a>
                                         )}
                                         {(member.socials as any)?.twitter && (
