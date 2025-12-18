@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import TeamSection from '@/components/TeamSection';
+import JoinTeam from '@/components/JoinTeam';
 
 export default function AboutPage() {
     return (
-        <main className="pt-32 pb-20 px-6 min-h-screen flex flex-col justify-center">
-            <div className="max-w-5xl mx-auto relative">
-
+        <main className="min-h-screen bg-black relative">
+            {/* Hero Section */}
+            <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto relative z-10">
                 {/* Background Decor */}
                 <div className="absolute -top-20 -left-20 w-72 h-72 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
                 <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-gray-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
@@ -49,6 +51,10 @@ export default function AboutPage() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* New Sections */}
+            <TeamSection />
+            <JoinTeam />
         </main>
     );
 }
