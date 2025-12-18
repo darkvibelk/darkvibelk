@@ -90,7 +90,7 @@ export default function TeamSection() {
                                             </a>
                                         )}
                                         {(member.socials as any)?.whatsapp && (
-                                            <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition-colors">
+                                            <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
                                                 <MessageCircle className="w-4 h-4" />
                                             </a>
                                         )}
@@ -100,7 +100,7 @@ export default function TeamSection() {
                                             </a>
                                         )}
                                         {(member.socials as any)?.youtube && (
-                                            <a href={(member.socials as any).youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-red-500 transition-colors">
+                                            <a href={(member.socials as any).youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
                                                 <Youtube className="w-4 h-4" />
                                             </a>
                                         )}
