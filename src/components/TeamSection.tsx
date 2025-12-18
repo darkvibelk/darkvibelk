@@ -18,36 +18,20 @@ const teamMembers = [
         }
     },
     {
-        name: "Sarah Jenkins",
-        role: "Head of Operations",
-        image: "/team-ref-1.png",
-        status: "Strategist",
+        name: "Mohamed Akmal",
+        role: "Team Member", // Position pending
+        image: "/team-ref-1.png", // Image pending
+        status: "Loading...",
         isCutout: true,
-        socials: {
-            linkedin: "#"
-        }
+        socials: {}
     },
     {
-        name: "David Chen",
-        role: "Tech Lead",
-        image: "/team-ref-1.png",
-        status: "Architect",
+        name: "Shakee Affa",
+        role: "Team Member", // Position pending
+        image: "/team-ref-1.png", // Image pending
+        status: "Loading...",
         isCutout: true,
-        socials: {
-            github: "#",
-            twitter: "#"
-        }
-    },
-    {
-        name: "Elena Rodriguez",
-        role: "Creative Director",
-        image: "/team-ref-1.png",
-        status: "Artist",
-        isCutout: true,
-        socials: {
-            linkedin: "#",
-            globe: "#"
-        }
+        socials: {}
     }
 ];
 
