@@ -19,10 +19,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Dark Vibe | All-In-One Platform",
+  title: "Dark Vibe | All-in-one Platform",
   description: "Next-generation digital and technical infrastructure solutions.",
   openGraph: {
-    title: "Dark Vibe | All-In-One Platform",
+    title: "Dark Vibe | All-in-one Platform",
     description: "Next-generation digital and technical infrastructure solutions.",
     url: "https://darkvibe.lk",
     siteName: "Dark Vibe Empire",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dark Vibe | All-In-One Platform",
+    title: "Dark Vibe | All-in-one Platform",
     description: "Next-generation digital and technical infrastructure solutions.",
     images: ["/logo.png"],
   },

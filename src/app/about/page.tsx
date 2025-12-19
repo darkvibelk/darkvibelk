@@ -6,7 +6,7 @@ import JoinTeam from '@/components/JoinTeam';
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-black relative">
+        <main className="min-h-screen bg-background relative">
             {/* Hero Section */}
             <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto relative z-10">
                 {/* Background Decor */}
@@ -38,9 +38,9 @@ export default function AboutPage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             {[
                                 { label: "Founded", value: "2020" },
-                                { label: "Clients", value: "50+" },
-                                { label: "Projects", value: "120+" },
-                                { label: "Global Reach", value: "5 Countries" }
+                                { label: "Clients", value: "3+" },
+                                { label: "Projects", value: "5+" },
+                                { label: "Global Reach", value: "1 Country" }
                             ].map((stat, i) => (
                                 <div key={i}>
                                     <div className="text-3xl font-heading font-bold text-white mb-2">{stat.value}</div>

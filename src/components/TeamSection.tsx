@@ -18,7 +18,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 const teamMembers = [
     {
         name: "Mohamed Zuhail",
-        role: "Founder & CEO",
+        role: "Founder",
         image: "/team-zuhail.jpg",
         status: "Visionary",
         isCutout: false,
@@ -37,147 +37,127 @@ const teamMembers = [
     },
     {
         name: "Mohamed Akmal",
-        role: "Team Member",
-        image: "/team-ref-1.png",
-        status: "Loading...",
-        isCutout: true,
-        socials: {}
+        role: "Co-Founder",
+        image: "/team-shakee.jpg",
+        status: "Visionary",
+        isCutout: false,
+        socials: {
+            globe: "",
+            linkedin: "https://www.linkedin.com/in/fmohamedakmal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            github: "",
+            email: "",
+            whatsapp: "",
+            facebookPage: "",
+            facebookProfile: "https://www.facebook.com/share/1AQEDjppx1/",
+            instagram: "https://www.instagram.com/fmohamedakmal?igsh=Z3h1eXNiczZ2YnI4",
+            twitter: "",
+            youtube: ""
+        }
     },
     {
         name: "Shakee Affa",
-        role: "Team Member",
-        image: "/team-ref-1.png",
-        status: "Loading...",
-        isCutout: true,
-        socials: {}
+        role: "Co-Founder",
+        image: "/team-akmal.jpg", // Assuming file name based on convention
+        status: "Visionary",
+        isCutout: false,
+        socials: {
+            globe: "",
+            linkedin: "https://www.linkedin.com/in/mt-shakee-affa-54b455279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            github: "",
+            email: "",
+            whatsapp: "",
+            facebookPage: "",
+            facebookProfile: "https://www.facebook.com/share/17hp8QsKFC/?mibextid=wwXIfr",
+            instagram: "https://www.instagram.com/mt.shakee?igsh=eGp3d3V0ZDIzOWlm&utm_source=qr",
+            twitter: "",
+            youtube: ""
+        }
     }
 ];
 
 export default function TeamSection() {
     return (
-        <section className="py-20 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-32 relative overflow-hidden bg-black">
+            {/* Background Ambience */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-black to-black opacity-50" />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-40 text-center"
+                    className="mb-24 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">THE ELITE SQUAD</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight">THE ELITE SQUAD</h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                         A collective of masterminds, engineers, and creatives forging the future.
                     </p>
                 </motion.div>
 
-                <div className="flex flex-wrap justify-center gap-16 lg:gap-24 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     {teamMembers.map((member, index) => (
-                        <div key={index} className="group relative flex flex-col items-center">
-                            {/* Floating Name Tag & Socials (3D Effect) */}
-                            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-4 group-hover:translate-y-0 absolute -top-28 z-20 w-64 pointer-events-none group-hover:pointer-events-auto">
-                                <div className="bg-[#0a0a0a]/90 backdrop-blur-xl border border-gray-800 p-4 rounded-2xl text-center shadow-2xl ring-1 ring-white/10">
-                                    <div className="text-white font-bold text-lg leading-tight mb-1">{member.name}</div>
-                                    <div className="text-sm text-gray-400 mb-3 font-medium">{member.role}</div>
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2 }}
+                            className="group relative"
+                        >
+                            {/* Card Container */}
+                            <div className="relative h-[500px] w-full bg-zinc-900/40 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-chrome/50 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
 
-                                    {/* Divider */}
-                                    <div className="w-full h-px bg-gray-800 mb-3"></div>
-
-                                    {/* Social Icons */}
-                                    <div className="flex flex-wrap justify-center gap-3">
-                                        {member.socials?.globe && (
-                                            <a href={member.socials.globe} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Globe className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {member.socials?.linkedin && (
-                                            <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Linkedin className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {member.socials?.github && (
-                                            <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Github className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {(member.socials as any)?.email && (
-                                            <a href={(member.socials as any).email} className="text-gray-500 hover:text-white transition-colors">
-                                                <Mail className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {(member.socials as any)?.whatsapp && (
-                                            <a href={(member.socials as any).whatsapp} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" title="WhatsApp">
-                                                <WhatsAppIcon className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {((member.socials as any)?.facebookPage || (member.socials as any)?.facebookProfile) && (
-                                            <button
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    const page = (member.socials as any)?.facebookPage;
-                                                    const profile = (member.socials as any)?.facebookProfile;
-                                                    if (page) window.open(page, '_blank');
-                                                    if (profile) window.open(profile, '_blank');
-                                                }}
-                                                className="text-gray-500 hover:text-white transition-colors cursor-pointer"
-                                                title="Facebook"
-                                            >
-                                                <Facebook className="w-4 h-4" />
-                                            </button>
-                                        )}
-                                        {(member.socials as any)?.instagram && (
-                                            <a href={(member.socials as any).instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Instagram className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {(member.socials as any)?.twitter && (
-                                            <a href={(member.socials as any).twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Twitter className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {(member.socials as any)?.youtube && (
-                                            <a href={(member.socials as any).youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                                                <Youtube className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Image Container: Conditional Logic for Cutouts vs 1x1 Photos */}
-                            <div className={`relative z-10 transition-transform duration-500 group-hover:-translate-y-2 ${member.isCutout ? 'h-64 w-full flex justify-center items-end' : 'h-48 w-48 mb-2 flex items-center justify-center'}`}>
-                                <div className={`relative w-full h-full transition-all duration-500 ease-out ${member.isCutout ? 'grayscale group-hover:grayscale-0' : 'rounded-full overflow-hidden border-4 border-gray-800 group-hover:border-chrome shadow-2xl scale-[0.85] group-hover:scale-100 ring-4 ring-black/50'}`}>
+                                {/* Image Area */}
+                                <div className="absolute inset-0 h-[70%] w-full overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className={member.isCutout ? "object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" : "object-cover grayscale group-hover:grayscale-0"}
+                                        className="object-cover object-top transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                                     />
-                                    {/* Additional Glow for non-cutouts */}
-                                    {!member.isCutout && (
-                                        <div className="absolute inset-0 rounded-full ring-1 ring-white/10 group-hover:ring-chrome/50 transition-all duration-500"></div>
-                                    )}
                                 </div>
-                            </div>
 
-                            {/* The Pedestal (CSS 3D Cylinder Effect) */}
-                            <div className="relative w-40 h-10 mt-[-10px]">
-                                {/* Top Surface */}
-                                <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-gray-700 to-gray-800 rounded-[50%] z-0 border-t border-gray-600 group-hover:from-chrome group-hover:to-gray-800 transition-colors duration-500"></div>
-                                {/* Side Surface (Pseudo cylinder) */}
-                                <div className="absolute inset-x-0 top-5 h-8 bg-gradient-to-b from-gray-900 to-black w-[98%] mx-auto rounded-b-[50%] z-[-1] shadow-[0_20px_40px_rgba(0,0,0,0.8)]"></div>
-                                {/* Base Logo/Icon */}
-                                <div className="absolute inset-0 flex items-center justify-center pt-2 z-10 opacity-50 group-hover:opacity-100 transition-opacity">
-                                    <div className="w-4 h-4 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-chrome animate-pulse"></div>
+                                {/* Content Area */}
+                                <div className="absolute bottom-0 left-0 w-full p-8 z-20">
+                                    <div className="flex flex-col items-center text-center transform transition-transform duration-500 group-hover:-translate-y-4">
+                                        <h3 className="font-heading text-2xl font-bold text-white mb-2">{member.name}</h3>
+                                        <div className="text-chrome font-mono text-sm tracking-wider uppercase mb-6 px-3 py-1 bg-white/5 rounded-full border border-white/10">
+                                            {member.role}
+                                        </div>
+
+                                        {/* Socials - Revealed on Hover */}
+                                        <div className="flex gap-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                                            {member.socials?.linkedin && (
+                                                <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white text-gray-400 hover:text-black transition-all">
+                                                    <Linkedin className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                            {member.socials?.globe && (
+                                                <a href={member.socials.globe} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white text-gray-400 hover:text-black transition-all">
+                                                    <Globe className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                            {(member.socials as any)?.email && (
+                                                <a href={(member.socials as any).email} className="p-2 bg-white/5 rounded-full hover:bg-white text-gray-400 hover:text-black transition-all">
+                                                    <Mail className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                            {(member.socials as any)?.facebookProfile && (
+                                                <a href={(member.socials as any).facebookProfile} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white text-gray-400 hover:text-black transition-all">
+                                                    <Facebook className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                            {(member.socials as any)?.instagram && (
+                                                <a href={(member.socials as any).instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white text-gray-400 hover:text-black transition-all">
+                                                    <Instagram className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Mobile only text (since hover is tricky) */}
-                            <div className="mt-6 text-center lg:hidden">
-                                <h3 className="text-white font-bold">{member.name}</h3>
-                                <p className="text-sm text-gray-500">{member.role}</p>
-                            </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

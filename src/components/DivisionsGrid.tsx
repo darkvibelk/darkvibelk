@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Network, ShieldCheck, Layout, PenTool } from 'lucide-react';
+import { Network, ShieldCheck, Layout, PenTool, Cloud, Database } from 'lucide-react';
 
 const divisions = [
     {
@@ -27,6 +27,18 @@ const divisions = [
         description: "Premium graphic design services to elevate your brand's visual presence.",
         icon: PenTool,
         gradient: "from-pink-900/20 to-transparent"
+    },
+    {
+        title: "Cloud Command Infrastructure",
+        description: "Scalable cloud solutions and migration for the modern digital empire.",
+        icon: Cloud,
+        gradient: "from-sky-900/20 to-transparent"
+    },
+    {
+        title: "Secure Data Vaults",
+        description: "Advanced database architecture and security for your most critical assets.",
+        icon: Database,
+        gradient: "from-indigo-900/20 to-transparent"
     }
 ];
 
@@ -38,7 +50,7 @@ export default function DivisionsGrid() {
                 <div className="h-1 w-20 bg-gray-500"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {divisions.map((item, index) => (
                     <motion.div
                         key={index}

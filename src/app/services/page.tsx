@@ -44,6 +44,7 @@ const allServices = [
 
 export default function ServicesPage() {
     return (
+        // Services Page Component
         <main className="pt-32 pb-20 px-6 min-h-screen">
             <div className="max-w-7xl mx-auto">
                 <motion.div

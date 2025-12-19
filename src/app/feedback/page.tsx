@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { ArrowUpRight } from 'lucide-react';
+import CyberSelect from '@/components/CyberSelect';
 
 export default function FeedbackPage() {
     const [formData, setFormData] = useState({
@@ -14,8 +15,12 @@ export default function FeedbackPage() {
     });
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleCategoryChange = (value: string) => {
+        setFormData({ ...formData, category: value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -85,6 +90,13 @@ export default function FeedbackPage() {
         }
     };
 
+    const categoryOptions = [
+        { value: "zhatn", label: "Zhatn App Suggestion" },
+        { value: "bug", label: "Report a Bug / Anomaly" },
+        { value: "feature", label: "Feature Request" },
+        { value: "general", label: "General Feedback" }
+    ];
+
     return (
         <main className="pt-32 pb-20 px-6 min-h-screen flex items-center">
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-20">
@@ -106,7 +118,7 @@ export default function FeedbackPage() {
                             <a href="mailto:darkvibelk@gmail.com" className="block p-4 border border-gray-800 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
                                 <label className="block text-xs text-gray-600 mb-1 group-hover:text-white transition-colors">DIRECT UPLINK</label>
                                 <div className="flex items-center justify-between">
-                                    <span className="font-bold">EMAIL COMMS</span>
+                                    <span className="font-bold">EMAIL</span>
                                     <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100" />
                                 </div>
                             </a>
@@ -155,20 +167,15 @@ export default function FeedbackPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest text-gray-500">Feedback Category</label>
-                            <select
+                            <CyberSelect
+                                label="Feedback Category"
+                                placeholder="Select Category..."
+                                options={categoryOptions}
+                                value={formData.category}
+                                onChange={handleCategoryChange}
                                 name="category"
                                 required
-                                value={formData.category}
-                                onChange={handleChange}
-                                className="w-full bg-black/50 border-b border-gray-700 p-3 focus:outline-none focus:border-white transition-colors text-white appearance-none cursor-pointer"
-                            >
-                                <option value="" className="bg-black text-gray-500">Select Category...</option>
-                                <option value="zhatn" className="bg-black">Zhatn App Suggestion</option>
-                                <option value="bug" className="bg-black">Report a Bug / Anomaly</option>
-                                <option value="feature" className="bg-black">Feature Request</option>
-                                <option value="general" className="bg-black">General Feedback</option>
-                            </select>
+                            />
                         </div>
 
                         <div className="space-y-2">
