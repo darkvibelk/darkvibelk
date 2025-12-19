@@ -11,6 +11,8 @@ function SmoothScrolling({ children }: { children: React.ReactNode }) {
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
+            touchMultiplier: 2, // Speeds up touch input
+            smoothTouch: false, // Use native scroll on mobile (Fastest)
         });
 
         function raf(time: number) {
