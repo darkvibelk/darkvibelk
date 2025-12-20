@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/admin', '/private'],
         },
-        sitemap: 'https://darkvibe.lk/sitemap.xml',
+        sitemap: 'https://darkvibelk.com/sitemap.xml',
     };
 }

@@ -19,19 +19,48 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Dark Vibe | All-in-one Platform",
-  description: "Next-generation digital and technical infrastructure solutions.",
+  metadataBase: new URL('https://darkvibelk.com'),
+  title: {
+    default: "Dark Vibe | #1 Leading Digital Infrastructure Platform",
+    template: "%s | Dark Vibe Empire"
+  },
+  description: "The global leader in next-generation digital infrastructure, web development, and technical branding. We build digital empires with precision, speed, and unmatched aesthetic power.",
+  keywords: [
+    "Dark Vibe", "Dark Vibe LK", "Mohamed Zuhail", "Mohamed Akmal",
+    "Web Development Sri Lanka", "Best Web Design Agency",
+    "Software Engineering", "Digital Empire", "Cyber Aesthetics",
+    "NextJS Developers", "Premium Branding", "Technical Infrastructure",
+    "IT Solutions", "Network Engineering", "Graphic Design",
+    "Global Digital Agency", "Enterprise Web Development", "Worldwide IT Support"
+  ],
+  authors: [{ name: "Mohamed Zuhail" }, { name: "Mohamed Akmal" }],
+  creator: "Dark Vibe Empire",
+  publisher: "Dark Vibe Empire",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'en-GB': '/en-GB',
+      'en-CA': '/en-CA',
+      'x-default': '/',
+    },
+  },
   openGraph: {
-    title: "Dark Vibe | All-in-one Platform",
-    description: "Next-generation digital and technical infrastructure solutions.",
-    url: "https://darkvibe.lk",
+    title: "Dark Vibe | #1 Leading Digital Infrastructure Platform",
+    description: "The global leader in next-generation digital infrastructure. We forge digital empires.",
+    url: "https://darkvibelk.com",
     siteName: "Dark Vibe Empire",
     images: [
       {
         url: "/logo.png",
-        width: 800,
-        height: 600,
-        alt: "Dark Vibe Empire Logo",
+        width: 1200,
+        height: 630,
+        alt: "Dark Vibe Empire - Leading Digital Platform",
       },
     ],
     locale: "en_US",
@@ -39,21 +68,90 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dark Vibe | All-in-one Platform",
-    description: "Next-generation digital and technical infrastructure solutions.",
+    title: "Dark Vibe | #1 Leading Digital Infrastructure Platform",
+    description: "The global leader in next-generation digital infrastructure.",
     images: ["/logo.png"],
+    creator: "@darkvibe",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add your verification codes here when available
+    google: 'google-site-verification-code',
+    yandex: 'yandex-verification-code',
+  },
+  category: 'technology',
 };
 
 import SmoothScrolling from "@/components/SmoothScrolling";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://darkvibelk.com/#organization",
+        "name": "Dark Vibe Empire",
+        "url": "https://darkvibelk.com",
+        "logo": "https://darkvibelk.com/logo.png",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Mohamed Zuhail"
+          },
+          {
+            "@type": "Person",
+            "name": "Mohamed Akmal"
+          }
+        ],
+        "sameAs": [
+          "https://twitter.com/darkvibe",
+          "https://linkedin.com/company/darkvibe"
+        ],
+        "areaServed": "Global",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "areaServed": "Global",
+          "availableLanguage": ["English", "Sinhala", "Tamil"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://darkvibelk.com/#website",
+        "url": "https://darkvibelk.com",
+        "name": "Dark Vibe Empire",
+        "publisher": {
+          "@id": "https://darkvibelk.com/#organization"
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${outfit.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
         <SmoothScrolling>
           <Navbar />
