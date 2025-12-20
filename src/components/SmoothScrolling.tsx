@@ -12,7 +12,11 @@ function SmoothScrolling({ children }: { children: React.ReactNode }) {
             gestureOrientation: 'vertical',
             smoothWheel: true,
             touchMultiplier: 2, // Speeds up touch input
-
+            // Prevent scroll locking on mobile
+            prevent: (node) => {
+                return node.classList.contains('lenis-prevent') ||
+                    node.id === 'headlessui-dialog-panel';
+            }
         });
 
         function raf(time: number) {
