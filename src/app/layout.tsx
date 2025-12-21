@@ -103,6 +103,8 @@ export const metadata: Metadata = {
 import SmoothScrolling from "@/components/SmoothScrolling";
 import Script from "next/script";
 
+import CustomCursor from "@/components/ui/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -161,6 +163,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
+        <CustomCursor />
         <SmoothScrolling>
           <Navbar />
           {children}

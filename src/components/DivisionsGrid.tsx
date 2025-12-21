@@ -1,5 +1,6 @@
 "use client";
 
+import RevealOnScroll from './ui/RevealOnScroll';
 import { motion } from 'framer-motion';
 import { Network, ShieldCheck, Layout, PenTool, Cloud, Database } from 'lucide-react';
 
@@ -45,10 +46,12 @@ const divisions = [
 export default function DivisionsGrid() {
     return (
         <section className="py-24 px-4 max-w-7xl mx-auto">
-            <div className="mb-16">
-                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">Our Divisions</h2>
-                <div className="h-1 w-20 bg-gray-500"></div>
-            </div>
+            <RevealOnScroll>
+                <div className="mb-16">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">Our Divisions</h2>
+                    <div className="h-1 w-20 bg-gray-500"></div>
+                </div>
+            </RevealOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {divisions.map((item, index) => (
