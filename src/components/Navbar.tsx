@@ -39,9 +39,14 @@ export default function Navbar() {
                             priority
                         />
                     </div>
-                    <span className="font-heading font-bold text-xl tracking-widest hidden md:block group-hover:text-gray-300 transition-colors">
-                        DARK VIBE <span className="text-xs text-chrome ml-2 px-2 py-1 bg-white/10 rounded">V2.0</span>
-                    </span>
+                    <div className="hidden md:flex flex-col items-start justify-center leading-none group-hover:opacity-90 transition-opacity ml-2">
+                        <div className="flex items-baseline">
+                            <span className="font-heading font-bold text-xl tracking-widest text-white">DARK VIBE</span>
+                            <span className="font-heading text-[10px] font-semibold text-white/40 ml-1">LK</span>
+                            <span className="font-heading text-[11px] font-medium text-white/60 tracking-[0.2em] ml-6">V2.0</span>
+                        </div>
+                        <span className="font-heading text-[9px] font-medium text-white/50 tracking-[0.135em] uppercase mt-0.5">All-in-one Platform</span>
+                    </div>
                 </Link>
 
                 {/* Desktop Nav */}

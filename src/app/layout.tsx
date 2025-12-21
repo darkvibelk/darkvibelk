@@ -18,6 +18,14 @@ const outfit = Outfit({
   display: 'swap',
 });
 
+// Handwritten Font for accent
+import { Caveat } from "next/font/google";
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: '--font-caveat',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://darkvibelk.com'),
   title: {
@@ -152,7 +160,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${outfit.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
+      <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
         <SmoothScrolling>
           <Navbar />
           {children}
