@@ -7,47 +7,70 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Network, ShieldCheck, Layout, PenTool } from 'lucide-react';
 import Link from 'next/link';
 import * as THREE from 'three';
+import Magnetic from './ui/Magnetic';
 
-function RotatingShape() {
-    const mesh = useRef<THREE.Mesh>(null);
+function WireframeGlobe() {
+    const meshRef = useRef<THREE.Mesh>(null);
+    const satellitesRef = useRef<THREE.Group>(null);
 
     useFrame((state, delta) => {
-        if (mesh.current) {
-            mesh.current.rotation.x += delta * 0.2;
-            mesh.current.rotation.y += delta * 0.3;
+        if (meshRef.current) {
+            meshRef.current.rotation.y += delta * 0.05;
+        }
+        if (satellitesRef.current) {
+            satellitesRef.current.rotation.y -= delta * 0.1;
+            satellitesRef.current.rotation.x += delta * 0.05;
         }
     });
 
     return (
-        <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-            <mesh ref={mesh} scale={2.5}>
-                <dodecahedronGeometry args={[1, 0]} />
-                {/* Dark Tech Material effect */}
-                <MeshTransmissionMaterial
-                    backside
-                    backsideThickness={1}
-                    thickness={1}
-                    roughness={0.2}
-                    transmission={1}
-                    ior={1.2}
-                    chromaticAberration={0.2}
-                    anisotropy={1}
-                    distortion={0.2}
-                    distortionScale={0.3}
-                    temporalDistortion={0.1}
-                    background={new THREE.Color('#020202')}
-                    color="#ffffff"
-                />
-            </mesh>
-            {/* Network Wireframe Shell */}
-            <mesh scale={3}>
-                <icosahedronGeometry args={[1, 2]} />
-                <meshBasicMaterial wireframe color="#3b82f6" transparent opacity={0.03} />
-            </mesh>
-            <mesh scale={3.1} rotation={[0, 0, Math.PI / 4]}>
-                <torusGeometry args={[1, 0.01, 16, 100]} />
-                <meshBasicMaterial color="#3b82f6" transparent opacity={0.1} />
-            </mesh>
+        <Float speed={1.5} rotationIntensity={1.5} floatIntensity={1.5}>
+            <group rotation={[0, 0, Math.PI / 6]}>
+                {/* Core Sphere (Black/Dark Blue) */}
+                <mesh ref={meshRef} scale={2.8}>
+                    <sphereGeometry args={[1, 64, 64]} />
+                    <meshStandardMaterial
+                        color="#020408"
+                        emissive="#00081a"
+                        emissiveIntensity={0.8}
+                        roughness={0.7}
+                    />
+                </mesh>
+
+                {/* Tech Wireframe Grid */}
+                <mesh scale={2.82} rotation={[0.5, 0.5, 0]}>
+                    <sphereGeometry args={[1, 24, 24]} />
+                    <meshBasicMaterial
+                        color="#3b82f6"
+                        wireframe
+                        transparent
+                        opacity={0.15}
+                    />
+                </mesh>
+
+                {/* Continental/Data Layers Effect */}
+                <mesh scale={2.9}>
+                    <icosahedronGeometry args={[1, 2]} />
+                    <meshBasicMaterial
+                        color="#60a5fa"
+                        wireframe
+                        transparent
+                        opacity={0.08}
+                    />
+                </mesh>
+
+                {/* Orbital Satellites / Data Points */}
+                <group ref={satellitesRef}>
+                    <mesh position={[3.2, 0, 0]}>
+                        <sphereGeometry args={[0.05, 16, 16]} />
+                        <meshBasicMaterial color="#ffffff" />
+                    </mesh>
+                    <mesh position={[-3.2, 0.5, 1]}>
+                        <sphereGeometry args={[0.03, 16, 16]} />
+                        <meshBasicMaterial color="#4ade80" />
+                    </mesh>
+                </group>
+            </group>
         </Float>
     );
 }
@@ -91,8 +114,7 @@ export default function Hero() {
                     <directionalLight position={[10, 10, 5]} intensity={2} color="white" />
                     <Sparkles count={100} scale={10} size={2} speed={0.4} opacity={0.5} color="#ffffff" />
                     <SpotLight position={[0, 10, 0]} intensity={200} penumbra={0.5} angle={0.8} color="white" castShadow />
-                    <RotatingShape />
-                    <RotatingShape />
+                    <WireframeGlobe />
                 </Canvas>
             </div>
 
@@ -121,24 +143,28 @@ export default function Hero() {
                     >
                         <div className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full">
                             <Link href="/services">
-                                {/* Glass Hover Button */}
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="relative px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 overflow-hidden group"
-                                >
-                                    <span className="relative z-10 flex items-center gap-2">Explore Solutions <ArrowRight className="w-4 h-4" /></span>
-                                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                                </motion.button>
+                                <Magnetic>
+                                    {/* Glass Hover Button */}
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="relative px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 overflow-hidden group"
+                                    >
+                                        <span className="relative z-10 flex items-center gap-2">Explore Solutions <ArrowRight className="w-4 h-4" /></span>
+                                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                                    </motion.button>
+                                </Magnetic>
                             </Link>
                             <Link href="/contact">
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="px-8 py-4 border border-gray-700 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition-colors bg-black/50 backdrop-blur-sm"
-                                >
-                                    <Mail className="w-4 h-4" /> Contact Team
-                                </motion.button>
+                                <Magnetic>
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="px-8 py-4 border border-gray-700 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 transition-colors bg-black/50 backdrop-blur-sm"
+                                    >
+                                        <Mail className="w-4 h-4" /> Contact Team
+                                    </motion.button>
+                                </Magnetic>
                             </Link>
                         </div>
                     </motion.div>
