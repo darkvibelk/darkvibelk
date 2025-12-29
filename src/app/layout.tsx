@@ -116,11 +116,18 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         "@id": "https://darkvibelk.com/#organization",
         "name": "Dark Vibe Empire",
         "url": "https://darkvibelk.com",
-        "logo": "https://darkvibelk.com/logo.png",
+        "logo": "https://darkvibelk.com/home-logo.png",
+        "image": "https://darkvibelk.com/opengraph-image.png",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "LK",
+          "addressLocality": "Colombo"
+        },
         "founders": [
           {
             "@type": "Person",
@@ -133,7 +140,8 @@ export default function RootLayout({
         ],
         "sameAs": [
           "https://twitter.com/darkvibe",
-          "https://linkedin.com/company/darkvibe"
+          "https://linkedin.com/company/darkvibe",
+          "https://instagram.com/darkvibelk"
         ],
         "areaServed": "Global",
         "contactPoint": {
