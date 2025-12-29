@@ -39,7 +39,9 @@ export const metadata: Metadata = {
     "Software Engineering", "Digital Empire", "Cyber Aesthetics",
     "NextJS Developers", "Premium Branding", "Technical Infrastructure",
     "IT Solutions", "Network Engineering", "Graphic Design",
-    "Global Digital Agency", "Enterprise Web Development", "Worldwide IT Support"
+    "Global Digital Agency", "Enterprise Web Development", "Worldwide IT Support",
+    "Artificial Intelligence", "Cloud Computing", "Cyber Security", "UI/UX Design",
+    "Mobile App Development", "E-commerce Solutions", "SEO Optimization"
   ],
   authors: [{ name: "Mohamed Zuhail" }, { name: "Mohamed Akmal" }],
   creator: "Dark Vibe Empire",
@@ -65,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Dark Vibe Empire",
     images: [
       {
-        url: "/logo.png",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Dark Vibe Empire - Leading Digital Platform",
@@ -78,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dark Vibe | #1 Leading Digital Infrastructure Platform",
     description: "The global leader in next-generation digital infrastructure.",
-    images: ["/logo.png"],
+    images: ["/opengraph-image.png"],
     creator: "@darkvibe",
   },
   robots: {
