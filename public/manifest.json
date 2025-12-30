@@ -1,0 +1,22 @@
+{
+    "name": "Dark Vibe Empire app",
+    "short_name": "Dark Vibe",
+    "description": "The global leader in next-generation digital infrastructure.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "/home-logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/home-logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "portrait"
+}

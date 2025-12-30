@@ -79,8 +79,11 @@ const tabs = [
     { id: 'design', label: 'Design', icon: Palette },
 ];
 
+import ProjectModal from '@/components/ui/ProjectModal';
+
 export default function ProjectsPage() {
     const [activeTab, setActiveTab] = useState('all');
+    const [selectedProject, setSelectedProject] = useState<any>(null);
 
     const filteredProjects = activeTab === 'all'
         ? projects
@@ -154,12 +157,20 @@ export default function ProjectsPage() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.4 }}
+                                onClick={() => setSelectedProject(project)}
+                                className="cursor-pointer group"
                             >
                                 <CyberProjectCard project={project} />
                             </motion.div>
                         ))}
                     </AnimatePresence>
                 </motion.div>
+
+                <ProjectModal
+                    isOpen={!!selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                    project={selectedProject}
+                />
             </div>
         </main>
     );

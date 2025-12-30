@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useSeasonalLogo } from '@/hooks/useSeasonalLogo';
+import LanguageSelector from './LanguageSelector';
 
 const navLinks = [
     { name: 'The Empire', path: '/' },
@@ -33,7 +34,7 @@ export default function Navbar() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 pointer-events-none"></div>
                         <Image
                             src={logoSrc}
-                            alt="Dark Vibe"
+                            alt="Dark Vibe - Leading Digital Infrastructure & Web Agency"
                             width={64}
                             height={64}
                             className="relative object-cover rounded-xl border border-gray-700 shadow-2xl group-hover:scale-105 transition-transform duration-300"
@@ -80,6 +81,9 @@ export default function Navbar() {
                             </Link>
                         );
                     })}
+                    <div className="ml-4 pl-4 border-l border-white/10">
+                        <LanguageSelector />
+                    </div>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -106,6 +110,9 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+                    <div className="mt-4 pt-4 border-t border-gray-800">
+                        <LanguageSelector />
+                    </div>
                 </motion.div>
             )}
         </header>

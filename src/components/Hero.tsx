@@ -8,6 +8,7 @@ import { ArrowRight, Mail, Network, ShieldCheck, Layout, PenTool } from 'lucide-
 import Link from 'next/link';
 import * as THREE from 'three';
 import Magnetic from './ui/Magnetic';
+import { Stars } from './ui/ParticleNebula';
 
 function WireframeGlobe() {
     const meshRef = useRef<THREE.Mesh>(null);
@@ -107,14 +108,17 @@ export default function Hero() {
     return (
         <section className="relative h-[90vh] flex flex-col items-center justify-center md:pt-32 overflow-hidden">
 
-            {/* 3D Background/Element */}
-            <div className="absolute inset-0 z-0 opacity-60">
+            {/* Combined 3D Scene */}
+            <div className="absolute inset-0 z-0">
                 <Canvas>
+                    <Stars />
                     <ambientLight intensity={1} />
                     <directionalLight position={[10, 10, 5]} intensity={2} color="white" />
                     <Sparkles count={100} scale={10} size={2} speed={0.4} opacity={0.5} color="#ffffff" />
                     <SpotLight position={[0, 10, 0]} intensity={200} penumbra={0.5} angle={0.8} color="white" castShadow />
-                    <WireframeGlobe />
+                    <group position={[0, -0.2, 0]} scale={0.85}>
+                        <WireframeGlobe />
+                    </group>
                 </Canvas>
             </div>
 

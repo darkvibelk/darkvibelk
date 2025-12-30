@@ -21,7 +21,7 @@ export default function Footer() {
 
                 {/* Left: Copyright */}
                 <div className="flex justify-center md:justify-start order-3 md:order-1">
-                    &copy; 2025 DARK VIBE.
+                    &copy; {new Date().getFullYear()} DARK VIBE.
                 </div>
 
                 {/* Center: Icon Nav */}

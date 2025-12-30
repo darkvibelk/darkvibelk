@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     default: "Dark Vibe | #1 Leading Digital Infrastructure Platform",
     template: "%s | Dark Vibe Empire"
   },
+  manifest: '/manifest.json',
   description: "The global leader in next-generation digital infrastructure, web development, and technical branding. We build digital empires with precision, speed, and unmatched aesthetic power.",
   keywords: [
     "Dark Vibe", "Dark Vibe LK", "Mohamed Zuhail", "Mohamed Akmal",
