@@ -80,6 +80,7 @@ export default function CyberProjectCard({ project }: ProjectProps) {
                             src={project.image}
                             alt={project.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                         />
                         {/* Vignette & Gradient Overlay */}
@@ -120,19 +121,21 @@ export default function CyberProjectCard({ project }: ProjectProps) {
                         </motion.div>
                     </div>
 
-                    {/* Scanline Overlay */}
-                    <div className="absolute inset-0 pointer-events-none bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay z-10" />
+                    {/* Scanline / Noise Overlay */}
+                    <div className="absolute inset-0 pointer-events-none bg-noise opacity-[0.03] mix-blend-overlay z-10" />
                 </div>
 
                 {/* "Vote Now" / Action Button Style Cursor Follower (Optional - Simplified to center for now) */}
                 {/* "Vote Now" / Action Button Style Cursor Follower */}
-                <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                        <span className="text-white font-mono text-[10px] uppercase text-center leading-tight tracking-widest">
-                            View<br />System
-                        </span>
+                {project.url !== '#' && (
+                    <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                            <span className="text-white font-mono text-[10px] uppercase text-center leading-tight tracking-widest">
+                                View<br />System
+                            </span>
+                        </div>
                     </div>
-                </div>
+                )}
 
             </Link>
         </motion.div>

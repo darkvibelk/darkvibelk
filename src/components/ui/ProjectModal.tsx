@@ -51,6 +51,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                     src={project.image}
                                     alt={project.title}
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 80vw"
                                     className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent opacity-90" />

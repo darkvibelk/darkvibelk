@@ -7,6 +7,20 @@ import CyberProjectCard from '@/components/CyberProjectCard';
 
 const projects = [
     {
+        title: "Project ZahiriQ [INTERNAL]",
+        category: "AI Phase 1",
+        type: "stealth",
+        image: "/project_darkvibe_concept.png",
+        year: "2026",
+        url: "#",
+        status: "COMING SOON",
+        isHidden: true,
+        longDescription: "A revolutionary autonomous intelligence layer engineered to redefine resolution logic and system synthesis. Project ZahiriQ operates in a hidden neural layer, processing complex datasets to predict and solve digital infrastructure anomalies before they manifest.",
+        techStack: ["Neural Networks", "TensorFlow", "Node.js", "Holographic UI"],
+        challenge: "Developing a non-intrusive intelligence layer that can autonomously manage large-scale enterprise systems without human latency.",
+        solution: "Implemented a custom transformer architecture optimized for real-time diagnostics and predictive healing protocols."
+    },
+    {
         title: "Zhatn",
         category: "Mobile Application",
         type: "web",
@@ -17,12 +31,12 @@ const projects = [
     },
     {
         title: "IT Service Desk",
-        category: "Web Application",
+        category: "Internal Portal",
         type: "web",
         image: "/screenshot_itsm.png?v=2",
         year: "2025",
-        url: "https://maytech-sd.pages.dev/",
-        status: "OPERATIONAL"
+        url: "#",
+        status: "RESTRICTED"
     },
     {
         title: "Rose Printers",
@@ -84,10 +98,24 @@ import ProjectModal from '@/components/ui/ProjectModal';
 export default function ProjectsPage() {
     const [activeTab, setActiveTab] = useState('all');
     const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [showStealth, setShowStealth] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
 
-    const filteredProjects = activeTab === 'all'
-        ? projects
-        : projects.filter(p => p.type === activeTab);
+    const handleTitleClick = () => {
+        setClickCount(prev => {
+            if (prev + 1 >= 5) {
+                setShowStealth(true);
+                return 0;
+            }
+            return prev + 1;
+        });
+    };
+
+    const filteredProjects = projects.filter(p => {
+        if (p.isHidden && !showStealth) return false;
+        if (activeTab === 'all') return true;
+        return p.type === activeTab || (activeTab === 'web' && p.type === 'stealth');
+    });
 
     return (
         <main className="pt-32 pb-20 px-6 min-h-screen bg-black text-white selection:bg-white selection:text-black">
@@ -96,7 +124,8 @@ export default function ProjectsPage() {
                     <motion.h1
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="font-heading text-[12vw] md:text-[8vw] font-bold leading-[0.8] tracking-tighter"
+                        onClick={handleTitleClick}
+                        className="font-heading text-[12vw] md:text-[8vw] font-bold leading-[0.8] tracking-tighter cursor-none select-none"
                     >
                         THE<br />ARCHIVE.
                     </motion.h1>

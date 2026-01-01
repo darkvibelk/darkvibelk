@@ -10,6 +10,9 @@ export default function Preloader() {
     useEffect(() => {
         if (isVisible) {
             document.body.style.overflow = "hidden";
+            // Safety fallback: Hide preloader after 5 seconds if video fails
+            const timer = setTimeout(() => setIsVisible(false), 5000);
+            return () => clearTimeout(timer);
         } else {
             document.body.style.overflow = "unset";
         }

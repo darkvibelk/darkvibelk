@@ -150,25 +150,25 @@ export default function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-xs uppercase tracking-widest text-gray-500">Name</label>
+                                <label className="text-xs uppercase tracking-widest text-gray-400">Name</label>
                                 <input
                                     type="text"
                                     name="name"
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full bg-black/50 border-b border-gray-700 p-3 focus:outline-none focus:border-white transition-colors text-white"
+                                    className="w-full bg-black/50 border-b border-gray-600 p-3 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-600"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs uppercase tracking-widest text-gray-500">Email</label>
+                                <label className="text-xs uppercase tracking-widest text-gray-400">Email</label>
                                 <input
                                     type="email"
                                     name="email"
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full bg-black/50 border-b border-gray-700 p-3 focus:outline-none focus:border-white transition-colors text-white"
+                                    className="w-full bg-black/50 border-b border-gray-600 p-3 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-600"
                                 />
                             </div>
                         </div>
@@ -186,14 +186,14 @@ export default function ContactPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest text-gray-500">Transmission</label>
+                            <label className="text-xs uppercase tracking-widest text-gray-400">Transmission</label>
                             <textarea
                                 name="message"
                                 required
                                 rows={4}
                                 value={formData.message}
                                 onChange={handleChange}
-                                className="w-full bg-black/50 border-b border-gray-700 p-3 focus:outline-none focus:border-white transition-colors text-white"
+                                className="w-full bg-black/50 border-b border-gray-600 p-3 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-600"
                             ></textarea>
                         </div>
 

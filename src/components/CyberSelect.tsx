@@ -52,7 +52,7 @@ export default function CyberSelect({
     return (
         <div className="relative group mb-6" ref={containerRef}>
             {label && (
-                <label className="text-xs uppercase tracking-widest text-gray-500 mb-2 block group-focus-within:text-white transition-colors">
+                <label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block group-focus-within:text-white transition-colors">
                     {label}
                 </label>
             )}
@@ -73,12 +73,12 @@ export default function CyberSelect({
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full text-left bg-black/50 border-b border-gray-700 p-3 flex items-center justify-between focus:outline-none focus:border-white transition-all duration-300 ${isOpen ? 'border-white bg-white/5' : ''}`}
+                className={`w-full text-left bg-black/50 border-b border-gray-600 p-3 flex items-center justify-between focus:outline-none focus:border-white transition-all duration-300 ${isOpen ? 'border-white bg-white/5' : ''}`}
             >
-                <span className={`text-lg font-heading ${value ? 'text-white' : 'text-gray-500'}`}>
+                <span className={`text-lg font-heading ${value ? 'text-white' : 'text-gray-400'}`}>
                     {selectedLabel}
                 </span>
-                <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-white' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform duration-300 ${isOpen ? 'rotate-180 text-white' : ''}`} />
             </button>
 
             <AnimatePresence>
