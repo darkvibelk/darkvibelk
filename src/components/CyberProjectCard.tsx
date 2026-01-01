@@ -106,7 +106,7 @@ export default function CyberProjectCard({ project }: ProjectProps) {
                         <motion.div
                             className="transform transition-transform duration-500 group-hover:-translate-y-2"
                         >
-                            <h3 className="font-heading text-3xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tight">
+                            <h3 className={`font-heading text-3xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tight transition-all duration-700 ${project.type === 'stealth' ? 'blur-md group-hover:blur-none select-none' : ''}`}>
                                 {project.title}
                             </h3>
 

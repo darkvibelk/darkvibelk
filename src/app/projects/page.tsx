@@ -7,15 +7,15 @@ import CyberProjectCard from '@/components/CyberProjectCard';
 
 const projects = [
     {
-        title: "Project ZahiriQ [INTERNAL]",
-        category: "AI Phase 1",
+        title: "Project ZolviQ [INTERNAL]",
+        category: "Stealth Mode 🕵️",
         type: "stealth",
         image: "/project_darkvibe_concept.png",
         year: "2026",
         url: "#",
         status: "COMING SOON",
         isHidden: true,
-        longDescription: "A revolutionary autonomous intelligence layer engineered to redefine resolution logic and system synthesis. Project ZahiriQ operates in a hidden neural layer, processing complex datasets to predict and solve digital infrastructure anomalies before they manifest.",
+        longDescription: "Something revolutionary is currently cooking in the lab. A platform that will redefine how resolution works. (Shhh... it's a secret)",
         techStack: ["Neural Networks", "TensorFlow", "Node.js", "Holographic UI"],
         challenge: "Developing a non-intrusive intelligence layer that can autonomously manage large-scale enterprise systems without human latency.",
         solution: "Implemented a custom transformer architecture optimized for real-time diagnostics and predictive healing protocols."
