@@ -29,27 +29,26 @@ export default function Navbar() {
         <header className="fixed top-0 left-0 w-full !z-[9999] bg-[#050505]/80 backdrop-blur-md border-b border-white/5 text-white transition-all duration-300">
             <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
-                <Link href="/" className="flex items-center gap-4 group cursor-pointer relative z-10">
-                    <div className="relative w-16 h-16 rounded-xl overflow-hidden">
+                <Link href="/" className="flex items-center gap-3 group cursor-pointer relative z-10">
+                    <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden">
                         <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-900 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 pointer-events-none"></div>
                         <Image
                             src={logoSrc}
                             alt="Dark Vibe - Leading Digital Infrastructure & Web Agency"
                             width={64}
                             height={64}
-                            className="relative object-cover rounded-xl border border-gray-700 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                            className="relative w-full h-full object-cover rounded-xl border border-gray-700 shadow-2xl group-hover:scale-105 transition-transform duration-300"
                             priority
                             quality={100}
-                            unoptimized
                         />
                     </div>
-                    <div className="flex flex-col items-start justify-center leading-none group-hover:opacity-90 transition-opacity ml-2">
-                        <div className="flex items-baseline">
-                            <span className="font-heading font-bold text-xl tracking-widest text-white">DARK VIBE</span>
-                            <span className="font-heading text-[10px] font-semibold text-white/40 ml-1">LK</span>
-                            <span className="font-heading text-[11px] font-medium text-white/60 tracking-[0.2em] ml-6">V2.0</span>
+                    <div className="flex flex-col items-start justify-center leading-none group-hover:opacity-90 transition-opacity">
+                        <div className="flex items-center gap-1.5">
+                            <span className="font-heading font-bold text-lg md:text-xl tracking-widest text-white">DARK VIBE</span>
+                            <span className="hidden xs:inline-block font-heading text-[10px] font-semibold text-white/40">LK</span>
+                            <span className="font-heading text-[10px] md:text-[11px] font-medium text-white/60 tracking-[0.2em] ml-1 md:ml-4 whitespace-nowrap">V2.0</span>
                         </div>
-                        <span className="font-heading text-[9px] font-medium text-white/50 tracking-[0.135em] uppercase mt-0.5">All-in-one Platform</span>
+                        <span className="font-heading text-[8px] md:text-[9px] font-medium text-white/50 tracking-[0.135em] uppercase mt-0.5">All-in-one Platform</span>
                     </div>
                 </Link>
 

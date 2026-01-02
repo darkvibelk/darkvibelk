@@ -108,11 +108,11 @@ export default function ProjectsPage() {
     return (
         <main className="pt-32 pb-20 px-6 min-h-screen bg-black text-white selection:bg-white selection:text-black">
             <div className="max-w-[1600px] mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20 md:mb-32 border-b border-gray-800 pb-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-32 border-b border-white/10 pb-10 gap-8">
                     <motion.h1
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="font-heading text-[12vw] md:text-[8vw] font-bold leading-[0.8] tracking-tighter cursor-none select-none"
+                        className="font-heading text-[15vw] md:text-[8vw] font-bold leading-[0.85] tracking-tighter cursor-none select-none"
                     >
                         THE<br />ARCHIVE.
                     </motion.h1>
@@ -120,19 +120,20 @@ export default function ProjectsPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="text-right mt-8 md:mt-0"
+                        className="text-left md:text-right"
                     >
-                        <div className="flex items-center justify-end gap-2 text-green-500 font-mono text-xs uppercase tracking-widest mb-4">
+                        <div className="flex items-center md:justify-end gap-2 text-green-500 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-4">
                             <Radio className="w-3 h-3 animate-pulse" />
                             <span>Systems Online</span>
                         </div>
-                        <p className="text-gray-400 font-mono text-sm max-w-xs leading-relaxed mb-4">
+                        <p className="text-gray-400 font-mono text-xs md:text-sm max-w-xs leading-relaxed mb-6">
                             A curated collection of digital experiences, network architectures, and brand identities engineered for impact.
                         </p>
                         <a
                             href="https://www.linkedin.com/in/armohamedzuhail/details/projects/"
                             target="_blank"
-                            className="inline-flex items-center gap-2 text-xs font-mono text-white/50 hover:text-white transition-colors border-b border-white/20 hover:border-white pb-0.5"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-[10px] md:text-xs font-mono text-white/50 hover:text-white transition-colors border-b border-white/20 hover:border-white pb-0.5"
                         >
                             View All on LinkedIn <ArrowUpRight className="w-3 h-3" />
                         </a>
@@ -140,22 +141,22 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Filter Tabs - Minimal Pill Style */}
-                <div className="sticky top-24 z-40 bg-black/80 backdrop-blur-xl py-4 mb-12 -mx-6 px-6 md:mx-0 md:px-0 border-b border-white/10 md:border-none">
-                    <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+                <div className="sticky top-20 z-40 bg-black/80 backdrop-blur-xl py-6 mb-12 -mx-6 px-6 md:mx-0 md:px-0 border-b border-white/5 md:border-none">
+                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                         {tabs.map((tab) => {
                             const Icon = tab.icon;
                             return (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 font-mono text-xs uppercase tracking-wider whitespace-nowrap
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 font-mono text-[10px] md:text-xs uppercase tracking-wider whitespace-nowrap
                                         ${activeTab === tab.id
-                                            ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.4)]'
-                                            : 'bg-transparent text-gray-500 border-gray-800 hover:border-gray-500 hover:text-white'
+                                            ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]'
+                                            : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/30 hover:text-white'
                                         }
                                     `}
                                 >
-                                    <Icon className="w-3 h-3" />
+                                    <Icon className="w-3 h-3 md:w-4 md:h-4" />
                                     {tab.label}
                                 </button>
                             );

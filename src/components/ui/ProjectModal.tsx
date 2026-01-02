@@ -15,6 +15,7 @@ interface Project {
     solution?: string;
     result?: string;
     type?: string;
+    url?: string;
 }
 
 interface ProjectModalProps {
@@ -122,9 +123,16 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                             </div>
                                         </div>
 
-                                        <button className="w-full py-3 md:py-4 bg-white text-black font-bold rounded-xl hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-2 group text-sm md:text-base">
-                                            Live Demo <ExternalLink className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-                                        </button>
+                                        {project.url && project.url !== '#' && (
+                                            <a
+                                                href={project.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full py-3 md:py-4 bg-white text-black font-bold rounded-xl hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-2 group text-sm md:text-base no-underline"
+                                            >
+                                                Live System <ExternalLink className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
