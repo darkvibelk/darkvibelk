@@ -14,6 +14,7 @@ interface Project {
     challenge?: string;
     solution?: string;
     result?: string;
+    type?: string;
 }
 
 interface ProjectModalProps {
@@ -52,7 +53,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                     alt={project.title}
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 80vw"
-                                    className="object-cover"
+                                    className={`object-cover ${project.type === 'stealth' ? 'blur-2xl' : ''}`}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent opacity-90" />
 
@@ -67,7 +68,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                     <span className="text-blue-400 font-mono text-[10px] md:text-xs tracking-wider uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
                                         {project.category}
                                     </span>
-                                    <h2 className="text-2xl md:text-5xl font-heading font-bold text-white leading-tight">{project.title}</h2>
+                                    <h2 className={`text-2xl md:text-5xl font-heading font-bold text-white leading-tight ${project.type === 'stealth' ? 'blur-md' : ''}`}>{project.title}</h2>
                                 </div>
                             </div>
 

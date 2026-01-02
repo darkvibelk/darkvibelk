@@ -7,14 +7,14 @@ import CyberProjectCard from '@/components/CyberProjectCard';
 
 const projects = [
     {
-        title: "Project ZolviQ [INTERNAL]",
+        title: "Project ZolviQ",
         category: "Stealth Mode 🕵️",
         type: "stealth",
-        image: "/project_darkvibe_concept.png",
+        image: "/project_zolviq.png",
         year: "2026",
         url: "#",
         status: "COMING SOON",
-        isHidden: true,
+        isHidden: false,
         longDescription: "Something revolutionary is currently cooking in the lab. A platform that will redefine how resolution works. (Shhh... it's a secret)",
         techStack: ["Neural Networks", "TensorFlow", "Node.js", "Holographic UI"],
         challenge: "Developing a non-intrusive intelligence layer that can autonomously manage large-scale enterprise systems without human latency.",
@@ -98,21 +98,9 @@ import ProjectModal from '@/components/ui/ProjectModal';
 export default function ProjectsPage() {
     const [activeTab, setActiveTab] = useState('all');
     const [selectedProject, setSelectedProject] = useState<any>(null);
-    const [showStealth, setShowStealth] = useState(false);
-    const [clickCount, setClickCount] = useState(0);
-
-    const handleTitleClick = () => {
-        setClickCount(prev => {
-            if (prev + 1 >= 5) {
-                setShowStealth(true);
-                return 0;
-            }
-            return prev + 1;
-        });
-    };
 
     const filteredProjects = projects.filter(p => {
-        if (p.isHidden && !showStealth) return false;
+        if (p.isHidden) return false;
         if (activeTab === 'all') return true;
         return p.type === activeTab || (activeTab === 'web' && p.type === 'stealth');
     });
@@ -124,7 +112,6 @@ export default function ProjectsPage() {
                     <motion.h1
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        onClick={handleTitleClick}
                         className="font-heading text-[12vw] md:text-[8vw] font-bold leading-[0.8] tracking-tighter cursor-none select-none"
                     >
                         THE<br />ARCHIVE.

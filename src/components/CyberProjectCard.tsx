@@ -81,7 +81,7 @@ export default function CyberProjectCard({ project }: ProjectProps) {
                             alt={project.title}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                            className={`object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${project.type === 'stealth' ? 'blur-2xl' : ''}`}
                         />
                         {/* Vignette & Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/90 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
@@ -106,7 +106,7 @@ export default function CyberProjectCard({ project }: ProjectProps) {
                         <motion.div
                             className="transform transition-transform duration-500 group-hover:-translate-y-2"
                         >
-                            <h3 className={`font-heading text-3xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tight transition-all duration-700 ${project.type === 'stealth' ? 'blur-md group-hover:blur-none select-none' : ''}`}>
+                            <h3 className={`font-heading text-3xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tight transition-all duration-700 ${project.type === 'stealth' ? 'blur-md select-none' : ''}`}>
                                 {project.title}
                             </h3>
 

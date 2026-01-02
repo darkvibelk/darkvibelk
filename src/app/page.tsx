@@ -1,7 +1,7 @@
-import Hero from '@/components/Hero';
+import dynamic from 'next/dynamic';
+const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
 import DivisionsGrid from '@/components/DivisionsGrid';
 import Roadmap from '@/components/Roadmap';
-import Preloader from '@/components/ui/Preloader';
 
 export default function Home() {
     return (
