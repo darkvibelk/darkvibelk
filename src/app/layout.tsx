@@ -20,9 +20,23 @@ const outfit = Outfit({
 
 // Handwritten Font for accent
 import { Caveat } from "next/font/google";
+import localFont from 'next/font/local';
+
 const caveat = Caveat({
   subsets: ["latin"],
   variable: '--font-caveat',
+  display: 'swap',
+});
+
+const toulouse = localFont({
+  src: '../fonts/Toulouse.otf',
+  variable: '--font-toulouse',
+  display: 'swap',
+});
+
+const dense = localFont({
+  src: '../fonts/Dense-Regular.otf',
+  variable: '--font-dense',
   display: 'swap',
 });
 
@@ -173,7 +187,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
+      <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} ${toulouse.variable} ${dense.variable} font-body bg-background text-white antialiased selection:bg-white/20 selection:text-black`}>
         <CustomCursor />
         <SmoothScrolling>
           <Navbar />

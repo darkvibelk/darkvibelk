@@ -26,8 +26,11 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="font-heading text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-chrome">
-                            <HackerText text="DARK VIBE" /> <span className="text-3xl text-green-500 animate-pulse block mt-4 md:mt-2">[SYSTEM ONLINE]</span>
+                        <h1 className="font-heading font-bold mb-6">
+                            <span className="block text-6xl md:text-8xl leading-none mb-1">
+                                <span className="font-toulouse tracking-wider text-white [-webkit-text-stroke:0]">DARK VIBE</span>
+                            </span>
+                            <span className="text-xl md:text-2xl text-white/60 block font-dense tracking-[0.3em] uppercase">ALL IN ONE PLATFORM</span>
                         </h1>
                         <p className="font-heading text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto tracking-wide">
                             NEXT-GENERATION SOLUTIONS FOR DIGITAL AND TECHNICAL INFRASTRUCTURE.

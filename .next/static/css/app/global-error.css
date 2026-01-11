@@ -1531,11 +1531,17 @@ video {
 .font-body {
   font-family: var(--font-inter), sans-serif;
 }
+.font-dense {
+  font-family: var(--font-dense), sans-serif;
+}
 .font-heading {
   font-family: var(--font-outfit), sans-serif;
 }
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.font-toulouse {
+  font-family: var(--font-toulouse), sans-serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1619,6 +1625,9 @@ video {
 }
 .tracking-\[0\.2em\] {
   letter-spacing: 0.2em;
+}
+.tracking-\[0\.3em\] {
+  letter-spacing: 0.3em;
 }
 .tracking-\[0\.5em\] {
   letter-spacing: 0.5em;
@@ -1878,6 +1887,9 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.\[-webkit-text-stroke\:0\] {
+  -webkit-text-stroke: 0;
+}
 .\[perspective\:1000px\] {
   perspective: 1000px;
 }
@@ -1959,6 +1971,15 @@ html {
     [role="button"] {
         cursor: none;
     }
+}
+
+/* Hardcoded Font Utilities to ensure loading */
+.font-toulouse {
+    font-family: var(--font-toulouse), sans-serif !important;
+}
+
+.font-dense {
+    font-family: var(--font-dense), sans-serif !important;
 }
 
 .selection\:bg-white *::-moz-selection {
@@ -2309,10 +2330,6 @@ html {
 
   .md\:mt-0 {
     margin-top: 0px;
-  }
-
-  .md\:mt-2 {
-    margin-top: 0.5rem;
   }
 
   .md\:block {

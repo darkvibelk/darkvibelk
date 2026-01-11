@@ -24,6 +24,8 @@ const config: Config = {
             fontFamily: {
                 heading: ['var(--font-outfit)', 'sans-serif'],
                 body: ['var(--font-inter)', 'sans-serif'],
+                toulouse: ['var(--font-toulouse)', 'sans-serif'],
+                dense: ['var(--font-dense)', 'sans-serif'],
             },
             animation: {
                 'spin-slow': 'spin 10s linear infinite',

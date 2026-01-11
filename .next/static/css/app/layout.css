@@ -136,6 +136,30 @@
 }.__variable_97f5e1 {--font-caveat: '__Caveat_97f5e1', '__Caveat_Fallback_97f5e1'
 }
 
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src\\app\\layout.tsx","import":"","arguments":[{"src":"../fonts/Toulouse.otf","variable":"--font-toulouse","display":"swap"}],"variableName":"toulouse"} ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__toulouse_1cf3e2';
+src: url(/_next/static/media/606a2d914cf43be0-s.p.otf) format('opentype');
+font-display: swap;
+}@font-face {font-family: '__toulouse_Fallback_1cf3e2';src: local("Arial");ascent-override: 123.63%;descent-override: 32.92%;line-gap-override: 0.00%;size-adjust: 60.75%
+}.__className_1cf3e2 {font-family: '__toulouse_1cf3e2', '__toulouse_Fallback_1cf3e2'
+}.__variable_1cf3e2 {--font-toulouse: '__toulouse_1cf3e2', '__toulouse_Fallback_1cf3e2'
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src\\app\\layout.tsx","import":"","arguments":[{"src":"../fonts/Dense-Regular.otf","variable":"--font-dense","display":"swap"}],"variableName":"dense"} ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__dense_a13ba1';
+src: url(/_next/static/media/45c05404db93d0b8-s.p.otf) format('opentype');
+font-display: swap;
+}@font-face {font-family: '__dense_Fallback_a13ba1';src: local("Arial");ascent-override: 151.80%;descent-override: 33.32%;line-gap-override: 8.52%;size-adjust: 54.02%
+}.__className_a13ba1 {font-family: '__dense_a13ba1', '__dense_Fallback_a13ba1'
+}.__variable_a13ba1 {--font-dense: '__dense_a13ba1', '__dense_Fallback_a13ba1'
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
@@ -1669,11 +1693,17 @@ video {
 .font-body {
   font-family: var(--font-inter), sans-serif;
 }
+.font-dense {
+  font-family: var(--font-dense), sans-serif;
+}
 .font-heading {
   font-family: var(--font-outfit), sans-serif;
 }
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.font-toulouse {
+  font-family: var(--font-toulouse), sans-serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1757,6 +1787,9 @@ video {
 }
 .tracking-\[0\.2em\] {
   letter-spacing: 0.2em;
+}
+.tracking-\[0\.3em\] {
+  letter-spacing: 0.3em;
 }
 .tracking-\[0\.5em\] {
   letter-spacing: 0.5em;
@@ -2016,6 +2049,9 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.\[-webkit-text-stroke\:0\] {
+  -webkit-text-stroke: 0;
+}
 .\[perspective\:1000px\] {
   perspective: 1000px;
 }
@@ -2097,6 +2133,15 @@ html {
     [role="button"] {
         cursor: none;
     }
+}
+
+/* Hardcoded Font Utilities to ensure loading */
+.font-toulouse {
+    font-family: var(--font-toulouse), sans-serif !important;
+}
+
+.font-dense {
+    font-family: var(--font-dense), sans-serif !important;
 }
 
 .selection\:bg-white *::-moz-selection {
@@ -2447,10 +2492,6 @@ html {
 
   .md\:mt-0 {
     margin-top: 0px;
-  }
-
-  .md\:mt-2 {
-    margin-top: 0.5rem;
   }
 
   .md\:block {

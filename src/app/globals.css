@@ -77,3 +77,12 @@ html {
         cursor: none;
     }
 }
+
+/* Hardcoded Font Utilities to ensure loading */
+.font-toulouse {
+    font-family: var(--font-toulouse), sans-serif !important;
+}
+
+.font-dense {
+    font-family: var(--font-dense), sans-serif !important;
+}
