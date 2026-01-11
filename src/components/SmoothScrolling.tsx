@@ -6,7 +6,8 @@ import Lenis from "lenis";
 function SmoothScrolling({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.5, // Slightly longer for more "weight"
+            duration: 1.0, // Snappier response
+
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',

@@ -23,7 +23,8 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const seasonalLogo = useSeasonalLogo();
-    const logoSrc = seasonalLogo || '/home-logo.png';
+    // Only show seasonal logo on the home page
+    const logoSrc = pathname === '/' ? (seasonalLogo || '/home-logo.png') : '/home-logo.png';
 
     return (
         <header className="fixed top-0 left-0 w-full !z-[9999] bg-[#050505]/80 backdrop-blur-md border-b border-white/5 text-white transition-all duration-300">
