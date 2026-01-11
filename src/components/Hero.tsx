@@ -1,127 +1,21 @@
 "use client";
 
-import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshTransmissionMaterial, Text3D, Center, Sparkles, SpotLight, Html } from '@react-three/drei';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Network, ShieldCheck, Layout, PenTool } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Link from 'next/link';
-import * as THREE from 'three';
 import Magnetic from './ui/Magnetic';
-import { Stars } from './ui/ParticleNebula';
 import HackerText from './ui/HackerText';
 
-function WireframeGlobe() {
-    const meshRef = useRef<THREE.Mesh>(null);
-    const satellitesRef = useRef<THREE.Group>(null);
+const HeroScene = dynamic(() => import('./HeroScene'), { ssr: false });
 
-    useFrame((state, delta) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.y += delta * 0.05;
-        }
-        if (satellitesRef.current) {
-            satellitesRef.current.rotation.y -= delta * 0.1;
-            satellitesRef.current.rotation.x += delta * 0.05;
-        }
-    });
-
-    return (
-        <Float speed={1.5} rotationIntensity={1.5} floatIntensity={1.5}>
-            <group rotation={[0, 0, Math.PI / 6]}>
-                {/* Core Sphere (Black/Dark Blue) */}
-                <mesh ref={meshRef} scale={2.8}>
-                    <sphereGeometry args={[1, 64, 64]} />
-                    <meshStandardMaterial
-                        color="#020408"
-                        emissive="#00081a"
-                        emissiveIntensity={0.8}
-                        roughness={0.7}
-                    />
-                </mesh>
-
-                {/* Tech Wireframe Grid */}
-                <mesh scale={2.82} rotation={[0.5, 0.5, 0]}>
-                    <sphereGeometry args={[1, 24, 24]} />
-                    <meshBasicMaterial
-                        color="#3b82f6"
-                        wireframe
-                        transparent
-                        opacity={0.15}
-                    />
-                </mesh>
-
-                {/* Continental/Data Layers Effect */}
-                <mesh scale={2.9}>
-                    <icosahedronGeometry args={[1, 2]} />
-                    <meshBasicMaterial
-                        color="#60a5fa"
-                        wireframe
-                        transparent
-                        opacity={0.08}
-                    />
-                </mesh>
-
-                {/* Orbital Satellites / Data Points */}
-                <group ref={satellitesRef}>
-                    <mesh position={[3.2, 0, 0]}>
-                        <sphereGeometry args={[0.05, 16, 16]} />
-                        <meshBasicMaterial color="#ffffff" />
-                    </mesh>
-                    <mesh position={[-3.2, 0.5, 1]}>
-                        <sphereGeometry args={[0.03, 16, 16]} />
-                        <meshBasicMaterial color="#4ade80" />
-                    </mesh>
-                </group>
-            </group>
-        </Float>
-    );
-}
-
-function FloatingIcons() {
-    return (
-        <>
-            <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-                {/* Network - Top Left */}
-                <Html position={[-3.5, 2, 0]} transform>
-                    <Network className="w-12 h-12 text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] opacity-90" />
-                </Html>
-
-                {/* IT Support - Top Right */}
-                <Html position={[3.5, 2, 0]} transform>
-                    <ShieldCheck className="w-12 h-12 text-green-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.8)] opacity-90" />
-                </Html>
-
-                {/* Web Design - Bottom Left */}
-                <Html position={[-3.5, -2, 0]} transform>
-                    <Layout className="w-12 h-12 text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.8)] opacity-90" />
-                </Html>
-
-                {/* Graphic Design - Bottom Right */}
-                <Html position={[3.5, -2, 0]} transform>
-                    <PenTool className="w-12 h-12 text-pink-400 drop-shadow-[0_0_15px_rgba(236,72,153,0.8)] opacity-90" />
-                </Html>
-            </Float>
-        </>
-    );
-}
 
 export default function Hero() {
     return (
         <section className="relative h-[90vh] flex flex-col items-center justify-center md:pt-32 overflow-hidden">
 
             {/* Combined 3D Scene */}
-            <div className="absolute inset-0 z-0">
-                <Canvas>
-                    <Stars />
-                    <ambientLight intensity={1} />
-                    <directionalLight position={[10, 10, 5]} intensity={2} color="white" />
-                    <Sparkles count={100} scale={10} size={2} speed={0.4} opacity={0.5} color="#ffffff" />
-                    <SpotLight position={[0, 10, 0]} intensity={200} penumbra={0.5} angle={0.8} color="white" castShadow />
-                    <group position={[0, -0.2, 0]} scale={0.85}>
-                        <WireframeGlobe />
-                    </group>
-                </Canvas>
-            </div>
+            <HeroScene />
 
             {/* Content Container - Locked toCenter */}
             <div className="z-10 w-full max-w-7xl px-6 relative pointer-events-none flex flex-col items-center text-center">

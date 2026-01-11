@@ -16,5 +16,31 @@ export default function ProjectsLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <>{children}</>;
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Dark Vibe Projects",
+        "url": "https://darkvibelk.com/projects",
+        "description": "Portfolio of deployed systems and digital architectures.",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Project ZolviQ" },
+                { "@type": "ListItem", "position": 2, "name": "Zhatn" },
+                { "@type": "ListItem", "position": 3, "name": "IT Service Desk" },
+                { "@type": "ListItem", "position": 4, "name": "Rose Printers" },
+                { "@type": "ListItem", "position": 5, "name": "Dark Vibe Empire" }
+            ]
+        }
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            {children}
+        </>
+    );
 }

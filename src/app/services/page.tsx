@@ -62,7 +62,7 @@ export default function ServicesPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allServices.map((service, idx) => (
-                        <motion.div
+                        <motion.article
                             key={idx}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </motion.article>
                     ))}
                 </div>
             </div>

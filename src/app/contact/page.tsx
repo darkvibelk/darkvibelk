@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import CyberSelect from '@/components/CyberSelect';
 
@@ -241,7 +242,7 @@ export default function ContactPage() {
                         <div className="flex items-center gap-4 mb-6">
                             <div className="relative">
                                 <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-700">
-                                    <img src="/team-zuhail.jpg" alt="Zuhail" className="w-full h-full object-cover" />
+                                    <Image src="/team-zuhail.jpg" alt="Zuhail" width={48} height={48} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-black" />
                             </div>
@@ -271,7 +272,7 @@ export default function ContactPage() {
                         <div className="flex items-center gap-4 mb-6">
                             <div className="relative">
                                 <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-700">
-                                    <img src="/team-shakee.jpg" alt="Akmal" className="w-full h-full object-cover" />
+                                    <Image src="/team-shakee.jpg" alt="Akmal" width={48} height={48} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-black" />
                             </div>
@@ -301,7 +302,7 @@ export default function ContactPage() {
                         <div className="flex items-center gap-4 mb-6">
                             <div className="relative">
                                 <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-700">
-                                    <img src="/team-akmal.jpg" alt="Shakee" className="w-full h-full object-cover" />
+                                    <Image src="/team-akmal.jpg" alt="Shakee" width={48} height={48} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-black" />
                             </div>
