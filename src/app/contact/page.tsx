@@ -66,6 +66,7 @@ export default function ContactPage() {
                 emailjs.send(
                     'service_2wrhkym',
                     'template_rpx136v',
+                    // Send email via EmailJS
                     {
                         to_name: formData.name,
                         to_email: formData.email,
