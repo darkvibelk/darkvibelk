@@ -85,6 +85,9 @@ export default function JoinTeam() {
                     {
                         to_name: formData.name,
                         to_email: formData.email,
+                        reply_to: formData.email,
+                        email: formData.email,
+                        user_email: formData.email,
                         service_name: `Job Application (${formData.role})`,
                         message: "Your application has been received. Our command center is reviewing your dossier."
                     },

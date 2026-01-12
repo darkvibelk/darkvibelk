@@ -64,6 +64,9 @@ export default function FeedbackPage() {
                     {
                         to_name: formData.name,
                         to_email: formData.email,
+                        reply_to: formData.email,
+                        email: formData.email,
+                        user_email: formData.email,
                         service_name: `Feedback - ${formattedCategory}`,
                         message: "We have received your transmission. Our team will review your feedback shortly."
                     },

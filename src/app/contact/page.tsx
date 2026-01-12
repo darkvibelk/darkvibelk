@@ -69,6 +69,9 @@ export default function ContactPage() {
                     {
                         to_name: formData.name,
                         to_email: formData.email,
+                        reply_to: formData.email,
+                        email: formData.email,
+                        user_email: formData.email,
                         service_name: formattedService, // Sending the clean name
                         message: formData.message
                     },
