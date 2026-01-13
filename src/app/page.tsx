@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
+import Hero from '@/components/Hero';
 import DivisionsGrid from '@/components/DivisionsGrid';
 import Roadmap from '@/components/Roadmap';
 
