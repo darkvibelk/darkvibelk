@@ -65,16 +65,21 @@ export default function Navbar() {
                             <Link
                                 key={link.path}
                                 href={link.path}
-                                className={`relative px-4 py-2 text-sm font-bold tracking-widest uppercase transition-colors z-10 group [perspective:1000px] ${isActive ? 'text-white' : 'text-gray-400 hover:text-white'}`}
+                                className={`relative px-4 py-2 text-sm font-bold tracking-widest uppercase transition-colors z-10 group overflow-hidden ${isActive ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                                 onMouseEnter={() => setHoveredIndex(index)}
                             >
-                                <span className="block relative z-20 transition-transform duration-700 ease-in-out group-hover:[transform:rotateX(360deg)] [transform-style:preserve-3d]">
-                                    {link.name}
-                                </span>
+                                <div className="relative overflow-hidden">
+                                    <span className="block transition-transform duration-500 group-hover:-translate-y-full" data-text={link.name}>
+                                        {link.name}
+                                    </span>
+                                    <span className="absolute top-0 left-0 block w-full h-full transition-transform duration-500 translate-y-full group-hover:translate-y-0 text-chrome">
+                                        {link.name}
+                                    </span>
+                                </div>
                                 {showPill && (
                                     <motion.div
                                         layoutId="glass-pill-navbar"
-                                        className="absolute inset-0 bg-white/10 rounded-full backdrop-blur-md shadow-[0_0_10px_rgba(255,255,255,0.1)] border border-white/10"
+                                        className="absolute inset-0 bg-white/10 rounded-full backdrop-blur-md shadow-[0_0_10px_rgba(255,255,255,0.1)] border border-white/10 -z-10"
                                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                     />
                                 )}

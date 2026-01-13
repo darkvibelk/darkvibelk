@@ -10,8 +10,8 @@ export default function AboutPage() {
             {/* Hero Section */}
             <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto relative z-10">
                 {/* Background Decor */}
-                <div className="absolute -top-20 -left-20 w-72 h-72 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-gray-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+                <div className="absolute -top-20 -left-20 w-72 h-72 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform-gpu will-change-transform"></div>
+                <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-gray-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse transform-gpu will-change-transform"></div>
 
                 <motion.div
                     initial={{ opacity: 0 }}
